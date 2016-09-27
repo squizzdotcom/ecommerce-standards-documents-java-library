@@ -54,6 +54,14 @@ public class ESDocumentCustomerAccountContract  extends ESDocument
     * List of customer account contract records
     */
     public ESDRecordCustomerAccountContract[] dataRecords = new ESDRecordCustomerAccountContract[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentCustomerAccountContract(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the customer account contract data

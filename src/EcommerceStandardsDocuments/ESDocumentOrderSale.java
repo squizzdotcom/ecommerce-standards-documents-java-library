@@ -331,6 +331,14 @@ public class ESDocumentOrderSale  extends ESDocument
     * List of sales order records
     */
     public ESDRecordOrderSale[] dataRecords = new ESDRecordOrderSale[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentOrderSale(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the sales order data

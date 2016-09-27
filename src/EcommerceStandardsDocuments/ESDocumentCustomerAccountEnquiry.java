@@ -1022,6 +1022,13 @@ public class ESDocumentCustomerAccountEnquiry  extends ESDocument
 
     /**
     * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentCustomerAccountEnquiry(){
+    }
+    
+    /**
+    * Constructor
     *  @param resultStatus status of obtaining the customer account record data
     *  @param message message to accompany the result status
     *  @param configs A list of key value pairs that contain additional information about the document.

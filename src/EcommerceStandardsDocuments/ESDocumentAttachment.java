@@ -53,6 +53,14 @@ public class ESDocumentAttachment  extends ESDocument
     * List of attachment records
     */
     public ESDRecordAttachment[] dataRecords = new ESDRecordAttachment[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentAttachment(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the attachment data

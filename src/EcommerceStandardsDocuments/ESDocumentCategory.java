@@ -70,6 +70,14 @@ public class ESDocumentCategory  extends ESDocument
     * List of category records
     */
     public ESDRecordCategory[] dataRecords = new ESDRecordCategory[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentCategory(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the category data

@@ -55,6 +55,14 @@ public class ESDocumentSurcharge  extends ESDocument
     * List of surcharge records
     */
     public ESDRecordSurcharge[] dataRecords = new ESDRecordSurcharge[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSurcharge(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the surcharge data

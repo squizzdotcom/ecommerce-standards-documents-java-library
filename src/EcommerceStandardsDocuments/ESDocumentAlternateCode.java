@@ -50,6 +50,13 @@ public class ESDocumentAlternateCode  extends ESDocument
     * List of alternate code records
     */
     public ESDRecordAlternateCode[] dataRecords = new ESDRecordAlternateCode[]{};
+    
+    /**
+    * Constructor
+    */
+    public ESDocumentAlternateCode(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the alternate code data

@@ -44,6 +44,14 @@ public class ESDocumentPriceLevel  extends ESDocument
     * List of price level records
     */
     public ESDRecordPriceLevel[] dataRecords = new ESDRecordPriceLevel[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentPriceLevel(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the price level data

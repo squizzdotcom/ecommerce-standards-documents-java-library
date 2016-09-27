@@ -90,6 +90,14 @@ public class ESDocumentAttribute  extends ESDocument
     * List of attribute value records
     */
     public ESDRecordAttributeValue[] dataRecords = new ESDRecordAttributeValue[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentAttribute(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the attribute data

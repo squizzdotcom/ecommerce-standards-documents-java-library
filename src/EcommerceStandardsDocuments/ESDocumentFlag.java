@@ -58,6 +58,14 @@ public class ESDocumentFlag  extends ESDocument
     * list of flag mapping records that assign flags to products, downloads, or labour
     */
     public ESDRecordFlagMapping[] dataRecords = new ESDRecordFlagMapping[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentFlag(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the flag data

@@ -65,6 +65,14 @@ public class ESDocumentLabour  extends ESDocument
     * List of labour records
     */
     public ESDRecordLabour[] dataRecords = new ESDRecordLabour[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentLabour(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the labour data

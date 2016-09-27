@@ -106,6 +106,14 @@ public class ESDocumentProductCombination  extends ESDocument
     * List of product combination records
     */
     public ESDRecordProductCombinationParent[] dataRecords = new ESDRecordProductCombinationParent[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentProductCombination(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the product combination data

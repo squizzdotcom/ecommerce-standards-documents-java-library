@@ -231,6 +231,14 @@ public class ESDocumentPrice  extends ESDocument
     * List of product price records
     */
     public ESDRecordPrice[] dataRecords = new ESDRecordPrice[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentPrice(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the product pricing data

@@ -47,6 +47,14 @@ public class ESDocumentItemRelation  extends ESDocument
     * List of item relation records
     */
     public ESDRecordItemRelation[] dataRecords = new ESDRecordItemRelation[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentItemRelation(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the item relation data

@@ -89,6 +89,14 @@ public class ESDocumentSellUnit  extends ESDocument
     * List of sell unit records
     */
     public ESDRecordSellUnit[] dataRecords = new ESDRecordSellUnit[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSellUnit(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the product data

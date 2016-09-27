@@ -50,6 +50,14 @@ public class ESDocumentStockQuantity  extends ESDocument
     * List of stock quantity records
     */
     public ESDRecordStockQuantity[] dataRecords = new ESDRecordStockQuantity[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentStockQuantity(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the stock quantity data

@@ -16,6 +16,14 @@ public class ESDocumentCustomerAccountEnquiryProductPrice  extends ESDocument
     * List of account enquiry pricing records.
     */
     public ESDRecordCustomerAccountEnquiryProductPrice[] dataRecords = new ESDRecordCustomerAccountEnquiryProductPrice[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentCustomerAccountEnquiryProductPrice(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the customer account enquiry product price record data

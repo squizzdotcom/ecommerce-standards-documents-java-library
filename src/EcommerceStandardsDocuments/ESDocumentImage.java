@@ -45,6 +45,14 @@ public class ESDocumentImage  extends ESDocument
     * List of image records
     */
     public ESDRecordImage[] dataRecords = new ESDRecordImage[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentImage(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the image data

@@ -71,6 +71,14 @@ public class ESDocumentSupplierAccountAddress  extends ESDocument
     * List of supplier account address records
     */
     public ESDRecordSupplierAccountAddress[] dataRecords = new ESDRecordSupplierAccountAddress[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSupplierAccountAddress(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the supplier account address record data

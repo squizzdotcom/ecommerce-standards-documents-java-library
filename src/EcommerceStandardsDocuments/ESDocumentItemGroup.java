@@ -58,6 +58,14 @@ public class ESDocumentItemGroup  extends ESDocument
     * List of item group records
     */
     public ESDRecordItemGroup[] dataRecords = new ESDRecordItemGroup[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentItemGroup(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the item group data

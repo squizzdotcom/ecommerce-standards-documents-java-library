@@ -331,6 +331,14 @@ public class ESDocumentOrderPurchase  extends ESDocument
     * List of purchase order records
     */
     public ESDRecordOrderPurchase[] dataRecords = new ESDRecordOrderPurchase[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentOrderPurchase(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the purchase order data

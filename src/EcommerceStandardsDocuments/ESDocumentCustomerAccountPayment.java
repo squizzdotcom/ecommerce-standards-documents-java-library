@@ -62,6 +62,14 @@ public class ESDocumentCustomerAccountPayment  extends ESDocument
     * List of customer account records
     */
     public ESDRecordCustomerAccountPayment[] dataRecords = new ESDRecordCustomerAccountPayment[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentCustomerAccountPayment(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the customer account payment record data

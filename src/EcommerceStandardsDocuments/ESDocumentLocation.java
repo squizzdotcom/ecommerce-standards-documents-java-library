@@ -92,6 +92,14 @@ public class ESDocumentLocation  extends ESDocument
     * List of Location records. The data records property must be the last property in the JSON data when serialised.
     */
     public ESDRecordLocation[] dataRecords = new ESDRecordLocation[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentLocation(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the location data

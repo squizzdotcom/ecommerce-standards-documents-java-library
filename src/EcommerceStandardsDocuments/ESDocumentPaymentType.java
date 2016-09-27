@@ -55,6 +55,14 @@ public class ESDocumentPaymentType  extends ESDocument
     * List of payment type records
     */
     public ESDRecordPaymentType[] dataRecords = new ESDRecordPaymentType[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentPaymentType(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the payment type data

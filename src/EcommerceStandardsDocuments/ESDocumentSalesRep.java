@@ -48,6 +48,14 @@ public class ESDocumentSalesRep  extends ESDocument
     * List of sales representative records
     */
     public ESDRecordSalesRep[] dataRecords = new ESDRecordSalesRep[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSalesRep(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the sales representative data

@@ -71,6 +71,14 @@ public class ESDocumentCustomerAccountAddress  extends ESDocument
     * List of customer account address records
     */
     public ESDRecordCustomerAccountAddress[] dataRecords = new ESDRecordCustomerAccountAddress[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentCustomerAccountAddress(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the customer account address record data

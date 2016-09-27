@@ -62,6 +62,14 @@ public class ESDocumentDownload  extends ESDocument
     * List of download records
     */
     public ESDRecordDownload[] dataRecords = new ESDRecordDownload[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentDownload(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the download data

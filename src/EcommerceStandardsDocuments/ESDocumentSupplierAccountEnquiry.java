@@ -227,6 +227,13 @@ public class ESDocumentSupplierAccountEnquiry  extends ESDocument
 
     /**
     * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSupplierAccountEnquiry(){
+    }
+    
+    /**
+    * Constructor
     *  @param resultStatus status of obtaining the supplier account record data
     *  @param message message to accompany the result status
     *  @param configs A list of key value pairs that contain additional information about the document.

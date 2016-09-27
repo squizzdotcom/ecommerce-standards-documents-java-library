@@ -136,6 +136,13 @@ public class ESDocumentProduct  extends ESDocument
     * List of product records
     */
     public ESDRecordProduct[] dataRecords = new ESDRecordProduct[]{};
+    
+    /**
+    * Constructor
+    */
+    public ESDocumentProduct(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the product data

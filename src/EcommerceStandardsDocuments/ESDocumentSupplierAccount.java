@@ -87,6 +87,14 @@ public class ESDocumentSupplierAccount  extends ESDocument
     * List of supplier account records
     */
     public ESDRecordSupplierAccount[] dataRecords = new ESDRecordSupplierAccount[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSupplierAccount(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the supplier account record data

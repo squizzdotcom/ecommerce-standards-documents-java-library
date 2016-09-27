@@ -53,6 +53,14 @@ public class ESDocumentKit  extends ESDocument
     * List of kit records
     */
     public ESDRecordKitComponent[] dataRecords = new ESDRecordKitComponent[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentKit(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the kit data

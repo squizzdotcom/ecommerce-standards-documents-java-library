@@ -48,6 +48,14 @@ public class ESDocumentPurchaser  extends ESDocument
     * List of purchaser records
     */
     public ESDRecordPurchaser[] dataRecords = new ESDRecordPurchaser[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentPurchaser(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the purchaser data

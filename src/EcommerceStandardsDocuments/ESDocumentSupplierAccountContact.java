@@ -52,6 +52,14 @@ public class ESDocumentSupplierAccountContact  extends ESDocument
     * List of contact records
     */
     public ESDRecordContact[] dataRecords = new ESDRecordContact[]{};
+    
+    /**
+    * Constructor
+    * Creates a new Ecommerce Standards document instance
+    */
+    public ESDocumentSupplierAccountContact(){
+    }
+    
     /**
     * Constructor
     *  @param resultStatus status of obtaining the supplier account contact record data
