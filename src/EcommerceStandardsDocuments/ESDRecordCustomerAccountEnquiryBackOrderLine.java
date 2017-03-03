@@ -101,6 +101,11 @@ public class ESDRecordCustomerAccountEnquiryBackOrderLine
     * tax code set for the line
     */
     public String taxCode = new String();
+    
+    /**
+    * percentage amount associated with the taxcode that has been used to calculate the line tax.
+    */
+    public double taxCodeRatePercent = 0;
 
     /**
     * Key of the location record associated to the line.

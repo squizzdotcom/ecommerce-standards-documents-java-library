@@ -101,6 +101,11 @@ public class ESDRecordCustomerAccountEnquiryCreditLine
     * tax code set for the line
     */
     public String taxCode = new String();
+    
+    /**
+    * percentage amount associated with the taxcode that has been used to calculate the line tax.
+    */
+    public double taxCodeRatePercent = 0;
 
     /**
     * ISO currency code that denotes the currency that all monetary amounts stored as in the line
