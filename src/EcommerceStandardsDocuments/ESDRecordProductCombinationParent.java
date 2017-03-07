@@ -11,6 +11,11 @@ package EcommerceStandardsDocuments;
 */
 public class ESDRecordProductCombinationParent   
 {
+	/**
+	* For product combinations specifics the value to set when no child product is the default within the combination
+	*/
+	public static final int DEFAULT_COMBINATION_NOT_SET = -1;
+	
     /**
     * Key of the product record that links it to being the parent product of the combination
     */
@@ -40,5 +45,5 @@ public class ESDRecordProductCombinationParent
     /**
     * Index of the product combinations list that denotes the combination that is the default. The default may be set when initially viewing a combination product
     */
-    public int defaultCombination = 0;
+    public int defaultCombination = DEFAULT_COMBINATION_NOT_SET;
 }
