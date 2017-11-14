@@ -1,11 +1,10 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
-
 
 /**
 * Ecommerce Standard Record holding data for a supplier account order line
@@ -131,6 +130,11 @@ public class ESDRecordSupplierAccountEnquiryOrderPurchaseLine
     * Code of the line that it may reference from another record
     */
     public String referenceLineCode = new String();
+    
+    /**
+    * Code of the supplier's product/labour/download that the line is associated to
+    */
+    public String supplierItemCode = new String();
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

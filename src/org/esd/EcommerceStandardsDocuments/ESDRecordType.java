@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2017 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -34,6 +34,8 @@ public class ESDRecordType {
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_PAYMENT_LINE = 22;
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_PRODUCT_PRICE = 23;
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_TRANSACTION = 24;
+	public static final int CUSTOMER_ACCOUNT_ENQUIRY_QUOTE = 62;
+    public static final int CUSTOMER_ACCOUNT_ENQUIRY_QUOTE_LINE = 63;
     public static final int CUSTOMER_ACCOUNT_PAYMENT = 25;
     public static final int CUSTOMER_ACCOUNT_PAYMENT_RECORD = 26;
     public static final int DOWNLOAD = 27;
@@ -45,6 +47,9 @@ public class ESDRecordType {
     public static final int KIT_COMPONENT = 33;
     public static final int LABOUR = 34;
     public static final int LOCATION = 35;
+	public static final int MAKER = 64;
+	public static final int MAKER_MODEL = 65;
+	public static final int MAKER_MODEL_MAPPING = 66;
     public static final int ORDER_LINE_ATTRIBUTE = 36;
     public static final int ORDER_LINE_ATTRIBUTE_PROFILE = 37;
     public static final int ORDER_LINE_TAX = 38 ;

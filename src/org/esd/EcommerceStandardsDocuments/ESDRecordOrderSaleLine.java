@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -57,6 +57,21 @@ public class ESDRecordOrderSaleLine
     * Key of the location record that the order line is assigned to.
     */
     public String keyLocationID = new String();
+	
+	/**
+	 * key of the external location where the products for the order can be found. This external location may be the location where goods are being delivered to or held at.
+	 */
+	public String externalKeyLocationID = new String();
+	
+	/**
+	 * Code of the external location. This external location may be the location where goods are being delivered to or held at.
+	 */
+	public String externalLocationCode = new String();
+	
+	/**
+	 * Name of the external location. This external location may be the location where goods are being delivered to or held at.
+	 */
+	public String externalLocationName = new String();
 
     /**
     * United Nations Standard Products and Service Code. Stores a standard code defined by the United Nations classifying objects.
@@ -318,6 +333,11 @@ public class ESDRecordOrderSaleLine
     * code of the labour in the purchase order associated to the sales order
     */
     public String purchaseOrderLabourCode = new String();
+    
+    /**
+    * text to describe details or comment of a text line
+    */
+    public String textDescription = new String();
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.
@@ -476,6 +496,21 @@ public class ESDRecordOrderSaleLine
         {
             keyLocationID = "";
         }
+		
+		if (externalKeyLocationID == null)
+		{
+			externalKeyLocationID = "";
+		}
+
+		if (externalLocationCode == null)
+		{
+			externalLocationCode = "";
+		}
+
+		if (externalLocationName == null)
+		{
+			externalLocationName = "";
+		}
          
         if (UNSPSC == null)
         {
@@ -565,6 +600,11 @@ public class ESDRecordOrderSaleLine
         if (purchaseOrderLabourCode == null)
         {
             purchaseOrderLabourCode = "";
+        }
+        
+        if(textDescription == null)
+        {
+            textDescription = "";
         }
          
         if (internalID == null)

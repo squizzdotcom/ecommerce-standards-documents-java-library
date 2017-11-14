@@ -1,11 +1,10 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
-
 
 /**
 * Contains a list of variable constants that can be used in Ecommerce Standards Documents and records
@@ -119,7 +118,7 @@ public class ESDocumentConstants
     /**
     * Contains the version that the Ecommerce Standards Documents library is currently at.
     */
-    public static final double ESD_DOCUMENT_VERSION = 1.1;
+    public static final double ESD_DOCUMENT_VERSION = 1.2;
     /**
     * Denotes that the location is a warehouse
     */
@@ -136,6 +135,18 @@ public class ESDocumentConstants
     * Denotes that the location is an office
     */
     public static final String LOCATION_TYPE_OFFICE = "OFFICE";
+	/**
+    * Denotes that the location is the head office of an organisation
+    */
+    public static final String LOCATION_TYPE_HEAD_OFFICE = "HEAD_OFFICE";
+	/**
+    * Denotes that the location is the belongs to or is associated with another third party entity 
+    */
+    public static final String LOCATION_TYPE_THIRD_PARTY = "THIRD_PARTY";
+	/**
+    * Denotes that the location is an unspecified kind of location
+    */
+    public static final String LOCATION_TYPE_OTHER = "OTHER";
     /**
     * Language - English Australia
     */
@@ -144,6 +155,10 @@ public class ESDocumentConstants
     * Language - English USA
     */
     public static final String LANG_EN_US = "EN_US";
+	/**
+    * Language - French France
+    */
+    public static final String LANG_FR_FR = "FR_FR";
     /**
     * Authority Number - Australian Business Number
     */
@@ -276,6 +291,10 @@ public class ESDocumentConstants
     * Record Type - Payment
     */
     public static final String RECORD_TYPE_PAYMENT = "PAYMENT";
+	/**
+    * Record Type - Quote
+    */
+    public static final String RECORD_TYPE_QUOTE = "QUOTE";
     /**
     * Record Line Type - Item
     */
@@ -309,5 +328,3 @@ public class ESDocumentConstants
     */
     public static final String PRICE_REFERENCE_TYPE_PROMOTION = "P";
 }
-
-

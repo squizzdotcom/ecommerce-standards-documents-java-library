@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -575,6 +575,21 @@ public class ESDRecordOrderPurchase
     * If 'Y' then indicates that the ordered goods are to be obtained across multiple locations.
     */
     public String isMultiLocation = new String();
+	
+	/**
+	 * key of the external location where the products for the order can be found. This external location may be the location where goods are being delivered to or held at.
+	 */
+	public String externalKeyLocationID = new String();
+	
+	/**
+	 * Code of the external location. This external location may be the location where goods are being delivered to or held at.
+	 */
+	public String externalLocationCode = new String();
+	
+	/**
+	 * Name of the external location. This external location may be the location where goods are being delivered to or held at.
+	 */
+	public String externalLocationName = new String();
 
     /**
     * Method that the order is being shipped by
@@ -838,6 +853,21 @@ public class ESDRecordOrderPurchase
         {
             locationName = "";
         }
+		
+		if (externalKeyLocationID == null)
+		{
+			externalKeyLocationID = "";
+		}
+
+		if (externalLocationCode == null)
+		{
+			externalLocationCode = "";
+		}
+
+		if (externalLocationName == null)
+		{
+			externalLocationName = "";
+		}
          
         if (freightCarrierCode == null)
         {

@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -17,6 +17,11 @@ public class ESDRecordCustomerAccountPayment
     * list of records that the payment applies to
     */
     public ArrayList<ESDRecordCustomerAccountPaymentRecord> records = new ArrayList<ESDRecordCustomerAccountPaymentRecord>();
+    
+    /**
+    * list of surcharges that have been added to the payment
+    */
+    public ArrayList<ESDRecordAccountPaymentSurcharge> surcharges = new ArrayList<ESDRecordAccountPaymentSurcharge>();
 
     /**
     * Key that allows the customer account payment record to be uniquely identified and linked to.
@@ -97,6 +102,26 @@ public class ESDRecordCustomerAccountPayment
     * ISO currency code that denotes the currency that all monetary amounts stored in the invoice with
     */
     public String currencyCode = new String();
+    
+    /**
+    * Total number of surcharges applied to the payment
+    */
+    public String totalSurchargeItems = new String();
+    
+    /**
+    * Total monetary amount of surcharges applied to the payment exclusive of taxes
+    */
+    public double totalSurchargeExTax = 0;
+    
+    /**
+    * Total monetary amount of surcharges applied to the payment inclusive of taxes
+    */
+    public double totalSurchargeIncTax = 0;
+    
+    /**
+    * Total monetary amount of taxes applied to surcharges in the payment
+    */
+    public double totalSurchargeTax = 0;
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.
@@ -166,7 +191,19 @@ public class ESDRecordCustomerAccountPayment
             {
                 paymentRecord.setDefaultValuesForNullMembers();
             }
-        } 
+        }
+        if (surcharges == null)
+        {
+            surcharges = new ArrayList<ESDRecordAccountPaymentSurcharge>();
+        }
+        else
+        {
+            for(ESDRecordAccountPaymentSurcharge surcharge : surcharges)
+            {
+                surcharge.setDefaultValuesForNullMembers();
+            }
+        }
+        
         if (paymentID == null)
         {
             paymentID = "";
@@ -235,5 +272,3 @@ public class ESDRecordCustomerAccountPayment
         }
     }
 }
-
-

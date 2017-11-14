@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -67,6 +67,26 @@ public class ESDRecordCustomerAccountEnquiryPayment
     * total monetary amount the payment applies
     */
     public double totalAmount = 0;
+	
+	/**
+	* Total number of surcharges applied to the payment
+	*/
+	public int totalSurchargeItems = 0;
+	
+	/**
+	* Total monetary amount of surcharges applied to the payment exclusive of taxes
+	*/
+	public double totalSurchargeExTax = 0;
+	
+	/**
+	* Total monetary amount of surcharges applied to the payment inclusive of taxes
+	*/
+	public double totalSurchargeIncTax = 0;
+	
+	/**
+	* Total monetary amount of taxes applied to surcharges in the payment
+	*/
+	public double totalSurchargeTax = 0;
 
     /**
     * ISO currency code that denotes the currency that all monetary amounts stored in the payment with
@@ -104,5 +124,3 @@ public class ESDRecordCustomerAccountEnquiryPayment
     */
     public ESDRecordCustomerAccountEnquiryPaymentLine[] lines = new ESDRecordCustomerAccountEnquiryPaymentLine[]{};
 }
-
-

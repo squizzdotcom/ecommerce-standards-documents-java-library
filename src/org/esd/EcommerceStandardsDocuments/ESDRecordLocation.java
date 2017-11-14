@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -70,6 +70,16 @@ public class ESDRecordLocation
     * Fax number of the location
     */
     public String fax = new String();
+	
+	/**
+    * URL of the website that is associated to the location
+    */
+    public String website = new String();
+	
+	/**
+    * address of the email that is handles communications for the location
+    */
+    public String email = new String();
 
     /**
     * Either
@@ -94,6 +104,20 @@ public class ESDRecordLocation
     * longitude co-ordinate of the geographic location. The number must be between 180 and -180
     */
     public double longitude = 0;
+	
+	/**
+	* Specifies the kind of the location that it represents
+	*
+	* HEAD_OFFICE - Location is the main head office of an organisational entity
+	* WAREHOUSE - Location is a warehouse that may store an amount of stock
+	* STORE - Location is a store that may sell goods and services
+	* OFFICE - Location is an office where work is performed
+	* SITE - Location is a site that has a defined area managed or used for business purposes.
+	* THIRD_PARTY - Location is external to an organisation and may be owned or run by a separate entity
+	* OTHER - The location type is not specified
+	* The location type defaults to OTHER if no value is set.
+	*/
+	public String locationType = ESDocumentConstants.LOCATION_TYPE_OTHER;
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

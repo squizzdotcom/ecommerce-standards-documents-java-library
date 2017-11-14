@@ -1,10 +1,11 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
+import java.util.ArrayList;
 
 /**
 * Ecommerce Standards record that contains the data of a single Purchase Order that can be queried for a supplier account. A purchase order record contains information about items ordered by a supplier account. The account enquiry aspect denotes that the record may be queried in real time and contain additional information associated with the record.
@@ -360,6 +361,218 @@ public class ESDRecordSupplierAccountEnquiryOrderPurchase
     * List of lines in the purchase order
     */
     public ESDRecordSupplierAccountEnquiryOrderPurchaseLine[] lines = new ESDRecordSupplierAccountEnquiryOrderPurchaseLine[]{};
+	
+	
+	/**
+	 * Converts the supplier account enquiry order purchase record into a purchase order record
+	 * @returns purchase order record and its lines
+	 */
+	public ESDRecordOrderPurchase convertToOrderPurchaseRecord()
+	{
+		ESDRecordOrderPurchase orderPurchaseRecord = new ESDRecordOrderPurchase();
+		ArrayList<ESDRecordOrderPurchaseLine> orderLines = new ArrayList<ESDRecordOrderPurchaseLine>();
+		long dateNotSet = 0;
+		int totalProducts = 0;
+
+		//iterate through each order line and add to the purchase order record
+		for (int i = 0; i < lines.length; i++)
+		{
+			ESDRecordOrderPurchaseLine orderLine = new ESDRecordOrderPurchaseLine();
+			ArrayList<ESDRecordOrderLineTax> taxes = new ArrayList<ESDRecordOrderLineTax>();
+			orderLine.lineType = ESDocumentConstants.ORDER_LINE_TYPE_PRODUCT;
+			orderLine.salesOrderLineCode = "";
+			orderLine.salesOrderLineNumber = "";
+			orderLine.locationCode = lines[i].locationCode;
+			orderLine.locationName = "";
+			orderLine.keyLocationID = lines[i].keyLocationID;
+			orderLine.UNSPSC = lines[i].UNSPSC;
+			orderLine.language = lines[i].language;
+			orderLine.quantity = lines[i].quantityOrdered;
+			orderLine.priceExTax = lines[i].priceExTax;
+			orderLine.priceIncTax = lines[i].priceIncTax;
+			orderLine.priceTax = lines[i].priceTax;
+			orderLine.priceUndiscountedExTax = lines[i].priceExTax;
+			orderLine.priceUndiscountedIncTax = lines[i].priceIncTax;
+			orderLine.priceUndiscountedTax = lines[i].priceTax;
+			orderLine.priceTotalExTax = lines[i].totalPriceExTax;
+			orderLine.priceTotalIncTax = lines[i].totalPriceIncTax;
+			orderLine.priceTotalTax = lines[i].totalPriceTax;
+			orderLine.priceTotalUndiscountedExTax = lines[i].totalPriceExTax;
+			orderLine.priceTotalUndiscountedIncTax = lines[i].totalPriceIncTax;
+			orderLine.priceTotalUndiscountedTax = lines[i].totalPriceTax;
+			orderLine.isPriceFree = ESDocumentConstants.ESD_VALUE_NO;
+			orderLine.entitySetPrice = "";
+			orderLine.unitName = lines[i].unit;
+			orderLine.keySellUnitID = "";
+			orderLine.sellUnitBaseQuantity = lines[i].quantityOrdered;
+			orderLine.priceReferenceCode = "";
+			orderLine.priceReferenceType = "";
+			orderLine.isKitted = ESDocumentConstants.ESD_VALUE_NO;;
+			orderLine.kittedProductSetPrice = ESDocumentConstants.ESD_VALUE_NO;
+			orderLine.isReserved = ESDocumentConstants.ESD_VALUE_NO;
+
+			//set product details if the line is for an item
+			if(lines[i].lineType.equalsIgnoreCase(ESDocumentConstants.RECORD_LINE_TYPE_ITEM))
+			{ 
+				orderLine.keyProductID = lines[i].lineItemID;
+				orderLine.productCode = lines[i].lineItemCode;
+				orderLine.productName = "";
+				orderLine.productDescription = lines[i].description;
+				orderLine.salesOrderProductCode = "";
+				orderLine.width  = 0;
+				orderLine.height = 0;
+				orderLine.depth = 0;
+				orderLine.volume = 0;
+				orderLine.weight = 0;
+				orderLine.widthUnitMeasureCode = "";
+				orderLine.heightUnitMeasureCode = "";
+				orderLine.depthUnitMeasureCode = "";
+				orderLine.volumeUnitMeasureCode = "";
+				orderLine.weightUnitMeasureCode = "";
+				orderLine.drop = lines[i].drop;
+				orderLine.internalID = lines[i].internalID;
+
+				//add tax record
+				if(lines[i].taxCode != null && !lines[i].taxCode.trim().isEmpty())
+				{
+					ESDRecordOrderLineTax lineTax = new ESDRecordOrderLineTax();
+					lineTax.keyTaxcodeID = "";
+					lineTax.taxcode = lines[i].taxCode;
+					lineTax.taxcodeLabel = "";
+					lineTax.taxRate = lines[i].taxCodeRatePercent;
+					lineTax.language = lines[i].language;
+					lineTax.quantity = lines[i].quantityOrdered;
+					lineTax.priceTax = lines[i].priceTax;
+					lineTax.priceTotalTax = lines[i].totalPriceTax;
+					lineTax.drop = 0;
+					lineTax.internalID = "";
+					taxes.add(lineTax);
+				}
+			}
+			else if(lines[i].lineType.equalsIgnoreCase(ESDocumentConstants.RECORD_LINE_TYPE_TEXT))
+			{
+				orderLine.lineType = ESDocumentConstants.ORDER_LINE_TYPE_TEXT;
+				orderLine.textDescription = lines[i].description;
+			}
+			orderLine.productDeliveries = new ArrayList<ESDRecordOrderProductDelivery>();
+			orderLine.attributes = new ArrayList<ESDRecordOrderLineAttributeProfile>();
+			orderLine.taxes = taxes;
+			orderLines.add(orderLine);
+		}
+
+		//set details of the purchase order record
+		orderPurchaseRecord.lines = orderLines;
+		orderPurchaseRecord.payments = new ArrayList<ESDRecordOrderPayment>();
+		orderPurchaseRecord.surcharges = new ArrayList<ESDRecordOrderSurcharge>();
+		orderPurchaseRecord.purchaseOrderCode = orderID;
+		orderPurchaseRecord.purchaseOrderNumber = orderNumber;
+		orderPurchaseRecord.supplierAccountName = "";
+		orderPurchaseRecord.sentDate = dateNotSet;
+		orderPurchaseRecord.processedDate = dateNotSet;
+		orderPurchaseRecord.dispatchedDate = dateNotSet;
+		orderPurchaseRecord.receivedDate = deliveredDate;
+		orderPurchaseRecord.modifiedDate = orderDate;
+		orderPurchaseRecord.createdDate = creationDate;
+		orderPurchaseRecord.eCommerceUserID = "";
+		orderPurchaseRecord.eCommerceUserName = "";
+		orderPurchaseRecord.eCommerceSystemID = "";
+		orderPurchaseRecord.keyPurchaserID = "";
+		orderPurchaseRecord.purchaserCode = purchaserCode;
+		orderPurchaseRecord.purchaserName = purchaserName;
+		orderPurchaseRecord.purchaserIndividual = ESDocumentConstants.ESD_VALUE_NO;
+		orderPurchaseRecord.invoiceNumbers = new String[0];
+		orderPurchaseRecord.supplierEntity = "";
+		orderPurchaseRecord.supplierPersonName = "";
+		orderPurchaseRecord.supplierOrgName = "";
+		orderPurchaseRecord.supplierAuthorityNumbers = new String[0];
+		orderPurchaseRecord.supplierAuthorityNumberLabels = new String[0];
+		orderPurchaseRecord.supplierAuthorityNumberTypes = new int[0];
+		orderPurchaseRecord.currencyISOCode = currencyCode;
+		orderPurchaseRecord.paymentStatus = "";
+		orderPurchaseRecord.paymentMethod = "";
+		orderPurchaseRecord.paymentProprietaryCode = "";
+		orderPurchaseRecord.paymentReceipt = "";
+		orderPurchaseRecord.paymentAmount = 0;
+		orderPurchaseRecord.keyPaymentTypeID = "";
+		orderPurchaseRecord.salesOrderNumber = "";
+
+		if (referenceType.equalsIgnoreCase(ESDocumentConstants.RECORD_LINE_TYPE_ORDER_SALE))
+		{
+			orderPurchaseRecord.salesOrderNumber = referenceNumber;
+		}
+		orderPurchaseRecord.purchaserSystemID = "";
+		orderPurchaseRecord.purchaserSystemName = "";
+		orderPurchaseRecord.purchaserSystemCode = "";
+		orderPurchaseRecord.sellerSystemID = "";
+		orderPurchaseRecord.sellerSystemName = "";
+		orderPurchaseRecord.sellerSystemCode = "";
+		orderPurchaseRecord.deliveryDescription = "";
+		orderPurchaseRecord.deliveryOrgName = deliveryOrgName;
+		orderPurchaseRecord.deliveryContact = deliveryContact;
+		orderPurchaseRecord.deliveryEmail = "";
+		orderPurchaseRecord.deliveryPhone = "";
+		orderPurchaseRecord.deliveryFax = "";
+		orderPurchaseRecord.deliveryAddress1 = deliveryAddress1;
+		orderPurchaseRecord.deliveryAddress2 = deliveryAddress2;
+		orderPurchaseRecord.deliveryAddress3 = deliveryAddress3;
+		orderPurchaseRecord.deliveryPostcode = deliveryPostcode;
+		orderPurchaseRecord.deliveryRegionName = deliveryStateProvince;
+		orderPurchaseRecord.deliveryCountryName = deliveryCountry;
+		orderPurchaseRecord.deliveryCountryCodeISO2 = deliveryCountryCodeISO2;
+		orderPurchaseRecord.deliveryCountryCodeISO3 = deliveryCountryCodeISO3;
+		orderPurchaseRecord.billingDescription = "";
+		orderPurchaseRecord.billingContact = billingContact;
+		orderPurchaseRecord.billingOrgName = billingOrgName;
+		orderPurchaseRecord.billingEmail = "";
+		orderPurchaseRecord.billingPhone = "";
+		orderPurchaseRecord.billingFax = "";
+		orderPurchaseRecord.billingAddress1 = billingAddress1;
+		orderPurchaseRecord.billingAddress2 = billingAddress2;
+		orderPurchaseRecord.billingAddress3 = billingAddress3;
+		orderPurchaseRecord.billingPostcode = billingPostcode;
+		orderPurchaseRecord.billingRegionName = billingStateProvince;
+		orderPurchaseRecord.billingCountryName = billingCountry;
+		orderPurchaseRecord.billingCountryCodeISO2 = billingCountryCodeISO2;
+		orderPurchaseRecord.billingCountryCodeISO3 = billingCountryCodeISO3;
+		orderPurchaseRecord.email = "";
+		orderPurchaseRecord.totalLines = lines.length;
+		orderPurchaseRecord.totalProducts = totalProducts;
+		orderPurchaseRecord.totalLabour = 0;
+		orderPurchaseRecord.totalDownloads = 0;
+		orderPurchaseRecord.totalPriceExTax = totalExTax;
+		orderPurchaseRecord.totalPriceIncTax = totalIncTax;
+		orderPurchaseRecord.totalTax = totalTax;
+		orderPurchaseRecord.totalVolume = 0;
+		orderPurchaseRecord.totalWeight = 0;
+		orderPurchaseRecord.totalSurchargeItems = 0;
+		orderPurchaseRecord.totalSurchargeExTax = 0;
+		orderPurchaseRecord.totalSurchargeIncTax = 0;
+		orderPurchaseRecord.totalSurchargeTax = 0;
+		orderPurchaseRecord.totalPriceUndiscountedExTax = totalExTax;
+		orderPurchaseRecord.totalPriceUndiscountedIncTax = totalIncTax;
+		orderPurchaseRecord.totalPriceUndiscountedTax = totalTax;
+		orderPurchaseRecord.instructions = comment;
+		orderPurchaseRecord.freightCarrierCode = freightCarrierCode;
+		orderPurchaseRecord.freightCarrierName = freightCarrierName;
+		orderPurchaseRecord.freightSystemRefCode = freightSystemRefCode;
+		orderPurchaseRecord.freightCarrierConsignCode = freightCarrierConsignCode;
+		orderPurchaseRecord.freightCarrierTrackingCode = freightCarrierTrackingCode;
+		orderPurchaseRecord.freightCarrierServiceCode = freightCarrierServiceCode;
+		orderPurchaseRecord.freightCarrierAccountCode = freightCarrierAccountCode;
+		orderPurchaseRecord.isDropship = ESDocumentConstants.ESD_VALUE_NO;
+		orderPurchaseRecord.keyLocationID = keyLocationID;
+		orderPurchaseRecord.locationCode = locationCode;
+		orderPurchaseRecord.locationName = locationLabel;
+		orderPurchaseRecord.isMultiLocation = ESDocumentConstants.ESD_VALUE_NO;
+		orderPurchaseRecord.shippingMethod = "";
+		orderPurchaseRecord.accountDiscountRate = 0;
+		orderPurchaseRecord.accountTerritory = "";
+		orderPurchaseRecord.isProductsDelivered = ESDocumentConstants.ESD_VALUE_NO;
+		orderPurchaseRecord.totalVolumeMeasureCode = "";
+		orderPurchaseRecord.totalWeightMeasureCode = "";
+		orderPurchaseRecord.drop = drop;
+		orderPurchaseRecord.internalID = internalID;
+
+		return orderPurchaseRecord;
+	}
 }
-
-

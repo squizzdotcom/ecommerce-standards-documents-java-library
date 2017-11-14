@@ -79,5 +79,3 @@ public class ESDocumentCustomerAccountContact  extends ESDocument
         }        
     }
 }
-
-

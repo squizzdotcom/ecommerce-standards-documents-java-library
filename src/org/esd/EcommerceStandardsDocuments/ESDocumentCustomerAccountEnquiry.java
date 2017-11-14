@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2016 Squizz PTY LTD
+* Copyright (C) 2018 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -987,6 +987,121 @@ import java.util.HashMap;
 * ]
 * }
 * }
+* 
+* An example of the Customer Account Enqury Standards document in its JSON serialised form, containing the detail of a single quote for a customer account
+*  {
+*      "version": 1.2,
+*      "resultStatus": 1,
+*      "message":"The customer account enquiry sales order detail data has been successfully obtained.",
+*      "dataTransferMode": "COMPLETE",
+*      "totalDataRecords": 1,
+*      "configs":{},
+*      "orderSaleRecords":
+*       [
+*          {
+*              "keyQuoteID":"112",
+*              "quoteID":"QUOTE-112",
+*              "keyCustomerAccountID":"222",
+*              "customerAccountCode":"CUST004",
+*              "quoteNumber": "4324234",
+*              "creationDate": 1449132083084,
+*              "quoteDate": 1449932083084,
+*              "dueDate": 1449932083084,
+*              "expiryDate": 1449982083084,
+*              "keyLocationID": "456",
+*              "locationCode": "LCT-456",
+*              "locationLabel": "Warehouse",
+*              "locationType": "WAREHOUSE",
+*              "referenceKeyID": "112",
+*              "referenceType": "INVOICE",
+*              "referenceNumber": "1234123",
+*              "customerReference": "3434343",
+*              "salesRepCode": "JD",
+*              "salesRepName": "John Doe",
+*              "deliveryContact": "Lee",
+*              "deliveryOrgName": "Lee's Business Pty Ltd",
+*              "deliveryAddress1": "22",
+*              "deliveryAddress2": "Bourkie Street",
+*              "deliveryAddress3": "Melbourne",
+*              "deliveryStateProvince": "Victoria",
+*              "deliveryCountry": "Australia",
+*              "deliveryCountryCodeISO2": "AU",
+*              "deliveryCountryCodeISO3": "AUS",
+*              "deliveryPostcode": "3000",
+*              "billingContact": "Tom",
+*              "billingOrgName": "Lee's Business Pty Ltd",
+*              "billingAddress1": "15",
+*              "billingAddress2": "Bourkie Street",
+*              "billingAddress3": "Melbourne",
+*              "billingStateProvince": "Victoria",
+*              "billingCountry": "Australia",
+*              "billingCountryCodeISO2": "AU",
+*              "billingCountryCodeISO3": "AUS",
+*              "billingPostcode": "3000",
+*              "taxNumber": "123 12332 123",
+*              "taxLabel": "GST",
+*              "taxRate": 10,
+*              "totalExTax": 100.00,
+*              "totalIncTax": 110.00,
+*              "totalTax": 10.00,
+*              "totalFreightIncTax": 11.00,
+*              "totalFreightExTax": 10.00,
+*              "totalExtraChargesIncTax": 1.10,
+*              "totalExtraChargesExTax": 1.00,
+*              "totalDiscountsIncTax": 220.00,
+*              "totalDiscountsExTax": 22.00,
+*              "totalLeviesIncTax": 22.00,
+*              "totalLeviesExTax": 20.00,
+*              "totalPaid": 50.00,
+*              "balance": 60.00,
+*              "currencyCode": "AUD",
+*              "totalQuantity": 3,
+*              "description": "",
+*              "freightCarrierCode": "ACME-FREIGHT-001",
+*              "freightCarrierName": "ACME Freight Shippers",
+*              "freightSystemRefCode": "SHIP-SYS",
+*              "freightCarrierConsignCode": "CON-23124123",
+*              "freightCarrierTrackingCode": "34325-25243-24343",
+*              "freightCarrierServiceCode": "EXPRESS-24",
+*              "freightCarrierAccountCode": "ACME-001",
+*              "language": "EN_AU",
+*              "comment": "Please leave goods by the back entrance",
+*              "lines":
+*              [
+*                  {
+*                      "keyOrderSaleLineID":"4122"
+*                  },
+*                  {
+*                      "keyQuoteLineID":"4123",
+*                      "lineItemID":"PROD1234453",
+*                      "lineItemCode":"PROD-123",
+*                      "lineType":"ITEM",
+*                      "description":"Tea Towels",
+*                      "language":"EN_AU",
+*                      "unit":"EACH",
+*                      "quantityQuoted": 22,
+*                      "priceExTax": 300.00,
+*                      "priceIncTax": 330.00,
+*                      "priceTax": 30.00,
+*                      "totalPriceExTax":6600.00,
+*                      "totalPriceIncTax": 7260.00,
+*                      "totalPriceTax": 660,
+*                      "taxCode":"GST",
+*                      "keyLocationID":"456",
+*                      "locationCode":"LCT-456",
+*                      "currencyCode":"AUD",
+*                      "referenceLineItemCode":"",
+*                      "referenceLineCode":""
+*                  },
+*                  {
+*                      "keyQuoteLineID":"11234124",
+*                      "lineType":"TEXT",
+*                      "description":"Tea towels are packed into cardboard boxes"
+*                  }
+*              ]
+*          }
+*      ]
+*  }
 */
 public class ESDocumentCustomerAccountEnquiry  extends ESDocument 
 {
@@ -1019,6 +1134,11 @@ public class ESDocumentCustomerAccountEnquiry  extends ESDocument
     * list of Customer Account Enquiry Credit records.
     */
     public ESDRecordCustomerAccountEnquiryCredit[] creditRecords = new ESDRecordCustomerAccountEnquiryCredit[]{};
+	
+	/**
+    * list of Customer Account Enquiry quote records.
+	*/
+	public ESDRecordCustomerAccountEnquiryQuote[] quoteRecords = new ESDRecordCustomerAccountEnquiryQuote[]{};
 
     /**
     * Constructor
@@ -1067,6 +1187,10 @@ public class ESDocumentCustomerAccountEnquiry  extends ESDocument
     * Record Type - Payment
     */
     public static final String RECORD_TYPE_PAYMENT = "PAYMENT";
+	/**
+    * Record Type - Quote
+    */
+    public static final String RECORD_TYPE_QUOTE = "QUOTE";
     /**
     * Record Line Type - Item
     */
@@ -1084,7 +1208,3 @@ public class ESDocumentCustomerAccountEnquiry  extends ESDocument
     */
     public static final String RECORD_LINE_TYPE_ORDER_SALE = "ORDER_SALE";
 }
-
-
-//public static readonly string RECORD_TYPE_QUOTE = "quote";
-//public static readonly string RECORD_TYPE_LAYBUY = "laybuy";
