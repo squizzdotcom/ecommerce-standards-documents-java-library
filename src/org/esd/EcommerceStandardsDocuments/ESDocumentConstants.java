@@ -118,7 +118,7 @@ public class ESDocumentConstants
     /**
     * Contains the version that the Ecommerce Standards Documents library is currently at.
     */
-    public static final double ESD_DOCUMENT_VERSION = 1.2;
+    public static final double ESD_DOCUMENT_VERSION = 1.3;
     /**
     * Denotes that the location is a warehouse
     */
@@ -327,4 +327,49 @@ public class ESDocumentConstants
     * Price reference Type - Promotion
     */
     public static final String PRICE_REFERENCE_TYPE_PROMOTION = "P";
+	
+	/**
+    * Delivery Status - Awaiting Packaging - The ordered goods are awaiting to be packaged up for delivery
+    */
+	public static final String DELIVERY_STATUS_AWAITING_PACKAGING = "AWAITING_PACKAGING";
+	/**
+    * Delivery Status - Packed - The ordered goods have been packaged up and awaiting to be loaded on transport for delivery
+    */
+	public static final String DELIVERY_STATUS_PACKED = "PACKED";
+	/**
+    * Delivery Status - Loaded - The ordered goods have been packaged up and have been loaded on transport for delivery. The transport has not yet left with the packaged goods.
+    */
+	public static final String DELIVERY_STATUS_LOADED = "LOADED";
+	/**
+	 * Delivery Status - In Transit - The ordered goods have been packaged up, loaded and are in transit on transport.
+	 */
+	public static final String DELIVERY_STATUS_IN_TRANSIT = "IN_TRANSIT";
+	/**
+	 * Delivery Status - In Storage - The ordered goods have been packaged up and are being stored at a location for later delivery.
+	 */
+	public static final String DELIVERY_STATUS_IN_STORAGE = "IN_STORAGE";
+	/**
+	 * Delivery Status - Delivered - The ordered goods have been packaged up, transported and delivered to a final location.
+	 */
+	public static final String DELIVERY_STATUS_DELIVERED = "DELIVERED";
+	/**
+	 * Delivery Status - Unpacked - The ordered goods have been packaged up, transported and delivered to a final location, then unpacked at that location.
+	 */
+	public static final String DELIVERY_STATUS_UNPACKED = "UNPACKED";
+	/**
+	 * Delivery Status - Delivery Missed - The ordered goods have been packaged up, transported to a final location, however they were not able to be received due to the authorized person(s) not being available to accept the goods.
+	 */
+	public static final String DELIVERY_STATUS_DELIVERY_MISSED = "DELIVERY_MISSED";
+	/**
+	 * Delivery Status - Received - The ordered goods have been packaged up, transported to a final location, delivered and able to be received by the authorised person(s).
+	 */
+	public static final String DELIVERY_STATUS_RECEIVED = "RECEIVED";
+	/**
+	 * Delivery Status - Lost In Transit - The ordered goods have been packaged up, and transported, however they were lost in transit. They may have been been lost in an accident, by an act of nature, or any other unforseen circumstance.
+	 */
+	public static final String DELIVERY_STATUS_LOST_IN_TRANSIT = "LOST_IN_TRANSIT";
+	/**
+	 * Delivery Status - Damaged In Transit - The ordered goods have been packaged up, and transported, however they were damaged in transit. They may have been been damaged in an accident, by an act of nature, or any other unforseen circumstance.
+	 */
+	public static final String DELIVERY_STATUS_DAMAGED_IN_TRANSIT = "DAMAGED_IN_TRANSIT";
 }

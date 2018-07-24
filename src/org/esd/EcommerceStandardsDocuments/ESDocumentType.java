@@ -22,6 +22,8 @@ public class ESDocumentType
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_LINE = 30;
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_PRODUCT_PRICE = 31;
     public static final int CUSTOMER_ACCOUNT_PAYMENT =32;
+	public static final int CUSTOMER_INVOICE = 41;
+	public static final int DELIVERY_NOTICE = 42;
     public static final int DOWNLOAD = 33;
     public static final int FLAG = 21;
     public static final int IMAGE = 12;
@@ -44,6 +46,7 @@ public class ESDocumentType
     public static final int SUPPLIER_ACCOUNT = 18;
     public static final int SUPPLIER_ACCOUNT_ADDRESS = 38;
     public static final int SUPPLIER_ACCOUNT_ENQUIRY = 39;
+	public static final int SUPPLIER_INVOICE = 40;
     public static final int SURCHARGE = 26;
     public static final int TAXCODE = 1;
 }
