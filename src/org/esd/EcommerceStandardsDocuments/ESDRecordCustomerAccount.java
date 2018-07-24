@@ -221,5 +221,5 @@ public class ESDRecordCustomerAccount
     /**
     * Payment Terms - Not Applicable
     */
-    public static final String ACCOUNT_PAYMENT_TERMS_NA = "MA";
+    public static final String ACCOUNT_PAYMENT_TERMS_NA = "NA";
 }
