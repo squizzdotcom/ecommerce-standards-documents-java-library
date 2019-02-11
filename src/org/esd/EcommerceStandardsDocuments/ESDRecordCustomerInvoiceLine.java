@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -119,6 +119,11 @@ public class ESDRecordCustomerInvoiceLine
     * Quantity of units back ordered.
     */
     public double quantityBackordered = 0;
+	
+	/**
+    * Quantity of units ordered.
+    */
+    public double quantityOrdered = 0;
 
     /**
     * Monetary price of the line's unit, excluding tax.
@@ -258,6 +263,21 @@ public class ESDRecordCustomerInvoiceLine
     * text to describe details of the product in the line
     */
     public String productDescription = new String();
+	
+	/**
+    * code of the product in the customer's supplier invoice, that stores the code of the customer's product
+    */
+    public String supplierInvoiceProductCode = new String();
+	
+	/**
+    * code of the product in the supplier's sales order, that stores the code of the supplier's product originally ordered
+    */
+    public String salesOrderProductCode = new String();
+	
+	/**
+    * code of the product in the customer's purchase order, that stores the code of the customer's product originally ordered
+    */
+    public String purchaseOrderProductCode = new String();
 
     /**
     * Width measurement of the product.
@@ -329,6 +349,21 @@ public class ESDRecordCustomerInvoiceLine
     * description the download in the line.
     */
     public String downloadDescription = new String();
+	
+	/**
+    * code of the download in the customer's supplier invoice, that stores the code of the customer's download
+    */
+    public String supplierInvoiceDownloadCode = new String();
+	
+	/**
+    * code of the download in the supplier's sales order, that stores the code of the supplier's download originally ordered
+    */
+    public String salesOrderDownloadCode = new String();
+	
+	/**
+    * code of the download in the customer's purchase order, that stores the code of the customer's download originally ordered
+    */
+    public String purchaseOrderDownloadCode = new String();
 
     // labour fields
     /**
@@ -350,6 +385,21 @@ public class ESDRecordCustomerInvoiceLine
     * text to describe details of the labour in the line
     */
     public String labourDescription = new String();
+	
+	/**
+    * code of the labour in the customer's supplier invoice, that stores the code of the customer's labour
+    */
+    public String supplierInvoiceLabourCode = new String();
+	
+	/**
+    * code of the labour in the supplier's sales order, that stores the code of the supplier's labour originally ordered
+    */
+    public String salesOrderLabourCode = new String();
+	
+	/**
+    * code of the labour in the customer's purchase order, that stores the code of the customer's labour originally ordered
+    */
+    public String purchaseOrderLabourCode = new String();
     
     /**
     * text to describe details or comment of a text line
@@ -360,6 +410,21 @@ public class ESDRecordCustomerInvoiceLine
     * Code of the customer's product/labour/download that the line is associated to
     */
     public String customerItemCode = new String();
+	
+	/**
+    * Key of the general ledger account that the line is assigned to. This links the invoice line to the general ledger account that the sale may be reported against for accounting purposes.
+	*/
+	public String keyGLAccountID = new String();
+
+	/**
+    * Code of the general ledger account that the line is assigned to. The code can be used to identify the general ledger account that the sale may be reported against for accounting purposes.
+	*/	
+	public String glAccountCode = new String();
+
+	/**
+    * Name of the general ledger account that the line is assigned to. The name can be used to identify the general ledger account that the sale may be reported against for accounting purposes.
+	*/	
+	public String glAccountName = new String();
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.
@@ -507,6 +572,21 @@ public class ESDRecordCustomerInvoiceLine
         {
             productDescription = "";
         }
+		
+		if (supplierInvoiceProductCode == null)
+        {
+            supplierInvoiceProductCode = "";
+        }
+		
+		if (salesOrderProductCode == null)
+        {
+            salesOrderProductCode = "";
+        }
+		
+		if (purchaseOrderProductCode == null)
+        {
+            purchaseOrderProductCode = "";
+        }
          
         if (widthUnitMeasureCode == null)
         {
@@ -552,6 +632,21 @@ public class ESDRecordCustomerInvoiceLine
         {
             downloadDescription = "";
         }
+		
+		if (supplierInvoiceDownloadCode == null)
+        {
+            supplierInvoiceDownloadCode = "";
+        }
+		
+		if (salesOrderDownloadCode == null)
+        {
+            salesOrderDownloadCode = "";
+        }
+		
+		if (purchaseOrderDownloadCode == null)
+        {
+            purchaseOrderDownloadCode = "";
+        }
          
         if (labourCode == null)
         {
@@ -571,6 +666,21 @@ public class ESDRecordCustomerInvoiceLine
         if (labourDescription == null)
         {
             labourDescription = "";
+        }
+	
+		if (supplierInvoiceLabourCode == null)
+        {
+            supplierInvoiceLabourCode = "";
+        }
+		
+		if (salesOrderLabourCode == null)
+        {
+            salesOrderLabourCode = "";
+        }
+		
+		if (purchaseOrderLabourCode == null)
+        {
+            purchaseOrderLabourCode = "";
         }
          
         if (isKitted == null)
@@ -597,5 +707,20 @@ public class ESDRecordCustomerInvoiceLine
         {
             internalID = "";
         }         
+		
+		if (keyGLAccountID == null)
+		{
+			keyGLAccountID = "";
+		}
+
+		if (glAccountCode == null)
+		{
+			glAccountCode = "";
+		}
+
+		if (glAccountName == null)
+		{
+			glAccountName = "";
+		}
     }
 }

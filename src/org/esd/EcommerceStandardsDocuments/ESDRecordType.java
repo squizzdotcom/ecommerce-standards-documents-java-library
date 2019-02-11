@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -37,11 +37,20 @@ public class ESDRecordType {
 	public static final int CUSTOMER_ACCOUNT_ENQUIRY_QUOTE = 62;
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_QUOTE_LINE = 63;
     public static final int CUSTOMER_ACCOUNT_PAYMENT = 25;
+	public static final int CUSTOMER_INVOICE = 67;
+	public static final int CUSTOMER_INVOICE_LINE = 68;
     public static final int CUSTOMER_ACCOUNT_PAYMENT_RECORD = 26;
+	public static final int DELIVERY_NOTICE = 76;
+	public static final int DELIVERY_NOTICE_LINE = 77;
     public static final int DOWNLOAD = 27;
     public static final int FLAG = 28;
     public static final int FLAG_MAPPING = 29;
     public static final int IMAGE = 30;
+	public static final int INVOICE_LINE_ATTRIBUTE = 71;
+	public static final int INVOICE_LINE_ATTRIBUTE_PROFILE = 72;
+	public static final int INVOICE_LINE_TAX = 73;
+	public static final int INVOICE_PAYMENT = 74;
+	public static final int INVOICE_SURCHARGE = 75;
     public static final int ITEM_GROUP = 31;
     public static final int ITEM_RELATION = 32;
     public static final int KIT_COMPONENT = 33;
@@ -74,6 +83,8 @@ public class ESDRecordType {
     public static final int SUPPLIER_ACCOUNT_ADDRESS = 57;
     public static final int SUPPLIER_ACCOUNT_ENQUIRY_ORDER_PURCHASE = 58;
     public static final int SUPPLIER_ACCOUNT_ENQUIRY_ORDER_PURCHASE_LINE = 59;
+	public static final int SUPPLIER_INVOICE = 69;
+	public static final int SUPPLIER_INVOICE_LINE = 70;
     public static final int SURCHARGE = 60;
     public static final int TAXCODE = 61;
 }

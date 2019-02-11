@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -195,6 +195,27 @@ public class ESDocumentConstants
     * Order Line Type - Labour
     */
     public static final String ORDER_LINE_TYPE_LABOUR = "LABOUR";
+	
+	/**
+    * Invoice Line Type - Text - indicates that textual details and comments have been set against an invoice line
+	*/
+	public static final String INVOICE_LINE_TYPE_TEXT = "TEXT";
+	/**
+    * Invoice Line Type - Product - indicates that a physical or non-physical product has been sold or purchased within an invoice line.
+	*/
+	public static final String INVOICE_LINE_TYPE_PRODUCT = "PRODUCT";
+	/**
+    * Invoice Line Type - Download - indicates that a digital file or asset has been sold or purchased within an invoice line.
+	*/
+	public static final String INVOICE_LINE_TYPE_DOWNLOAD = "DOWNLOAD";
+	/**
+    * Invoice Line Type - Labour - indicates that labour or work effort has been sold or purchased within in an invoice line.
+	*/
+	public static final String INVOICE_LINE_TYPE_LABOUR = "LABOUR";
+	/**
+    * Invoice Line Type - Miscellaneous - indicates that a non-specified sale or purchase has been made within an invoice line. Use this if no product/download/labour has been sold or purchased.
+	*/
+	public static final String INVOICE_LINE_TYPE_MISC = "MISC";
     /**
     * Entity Type - Org, denotes an organisation
     */
@@ -263,6 +284,28 @@ public class ESDocumentConstants
     * Payment method - ACCOUNT - A payment will be assigned to a customer account and paid based on the agreed payment terms
     */
     public static final String PAYMENT_METHOD_ACCOUNT = "ACCOUNT";
+	
+    /**
+    * UNPAID - The invoice has not been paid for
+    */
+    public static final String PAYMENT_STATUS_UNPAID = "UNPAID";
+    /**
+    * PENDING - A payment is currently in the process of being paid for, or is waiting on a process to complete
+    */
+    public static final String PAYMENT_STATUS_PENDING = "PENDING";
+    /**
+    * PAID - The invoice has been paid
+    */
+    public static final String PAYMENT_STATUS_PAID = "PAID";
+    /**
+    * DECLINED - A payment failed when trying to be paid
+    */
+    public static final String PAYMENT_STATUS_DECLINED = "DECLINED";
+    /**
+    * NONREQUIRED - No payment is required to pay for the invoice
+    */
+    public static final String PAYMENT_STATUS_NONREQUIRED = "NONREQUIRED";
+	
     /**
     * Record Type - Invoice
     */
@@ -372,4 +415,44 @@ public class ESDocumentConstants
 	 * Delivery Status - Damaged In Transit - The ordered goods have been packaged up, and transported, however they were damaged in transit. They may have been been damaged in an accident, by an act of nature, or any other unforseen circumstance.
 	 */
 	public static final String DELIVERY_STATUS_DAMAGED_IN_TRANSIT = "DAMAGED_IN_TRANSIT";
+	/**
+	 * General Ledger Account Type - Asset - a type of general ledger account that represents the different types of economic resources owned or controlled by an entity. Common examples of asset accounts are cash in hand, cash in bank, real estate, inventory, prepaid expenses, goodwill, and accounts receivable.
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_ASSET = "ASSET";
+	/**
+	 * General Ledger Account Type - Liability - a type of general ledger account that represents the different types of economic obligations of an entity, such as accounts payable, bank loans, bonds payable, and accrued expenses.
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_LIABILITY = "LIABILITY";
+	/**
+	 * General Ledger Account Type - Equity - a type of general ledger account that represents the residual equity of an entity (the value of assets after deducting the value of all liabilities). Equity accounts include common stock, paid-in capital, and retained earnings.
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_EQUITY = "EQUITY";
+	/**
+	 * General Ledger Account Type - Operating Revenue - a type of general ledger account that represents an entity's earnings from operating and trading activities, such as sales and service revenue.
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_OPERATING_REVENUE = "OPERATING_REVENUE";
+	/**
+	 * General Ledger Account Type - Non Operating Expense - a type of general ledger account that represent an entity's expenditures from operating and trading activities, such as utilities, rents and insurance.
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_OPERATING_EXPENSE = "OPERATING_EXPENSE";
+	/**
+	 * General Ledger Account Type - Non Operating Revenue - a type of general ledger account that represents an entity's earnings from non-operating or trading activities, such as investments, property or asset sales, currency exchange, or non-recurring sales.
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_NON_OPERATING_REVENUE = "NON_OPERATING_REVENUE";
+	/**
+	 * General Ledger Account Type - Non Operating Expenses - a type of general ledger account that represent an entity's expenditures from non-operating or trading activities, such as paying interest of loans, depreciation, losses on property or assets, legal fees
+	 */
+	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_NON_OPERATING_EXPENSE = "NON_OPERATING_EXPENSE";
+	/**
+	 * Currency Type - Fiat - currency that is issued and controlled by a central authority, such as a government
+	 */
+	public static final String CURRENCY_TYPE_FIAT = "FIAT";
+	/**
+	 * Currency Type - Cryptographic - currency that is stored and generated through cryptographic, digital mechanisms and not controlled by any one central authority.
+	 */
+	public static final String CURRENCY_TYPE_CRYPTO = "CRYPTO";
+	/**
+	 * Currency Type - Virtual - currency that is stored and created through digital mechanisms, and may be invented and/or controlled by a single organisation or other entity.
+	 */
+	public static final String CURRENCY_TYPE_VIRTUAL = "VIRTUAL";
 }

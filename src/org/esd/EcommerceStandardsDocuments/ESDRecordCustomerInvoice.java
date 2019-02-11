@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -13,58 +13,6 @@ import java.util.ArrayList;
 */
 public class ESDRecordCustomerInvoice
 {
-    /**
-    * UNPAID - No payment was received as yet
-    */
-    public static final String PAYMENT_METHOD_UNPAID = "UNPAID";
-    /**
-    * CREDIT - A payment was made with a credit card
-    */
-    public static final String PAYMENT_METHOD_CREDIT = "CREDITCARD";
-    /**
-    * COD - Payment will be made with cash when the goods are delivered to the delivery location
-    */
-    public static final String PAYMENT_METHOD_CASHONDELIVERY = "COD";
-    /**
-    * DIRECTDEPOSIT - Payment has been made with a direct bank transfer
-    */
-    public static final String PAYMENT_METHOD_DIRECTDEPOSIT = "DIRECTDEPOSIT";
-    /**
-    * QUOTE - No payment was made as a quote was only required
-    */
-    public static final String PAYMENT_METHOD_QUOTE = "QUOTE";
-    /**
-    * NONE - No payment was made or needed
-    */
-    public static final String PAYMENT_METHOD_NONE = "NONE";
-    /**
-    * PROPRIETARY - A payment was made using a proprietary payment system. PayPal could be one example of this.
-    */
-    public static final String PAYMENT_METHOD_PROPRIETARY = "PROPRIETARY";
-    /**
-    * ACCOUNT - A payment will be assigned to a customer account and paid based on the agreed payment terms
-    */
-    public static final String PAYMENT_METHOD_ACCOUNT = "ACCOUNT";
-    /**
-    * UNPAID - The invoice has not been paid for
-    */
-    public static final String PAYMENT_STATUS_UNPAID = "UNPAID";
-    /**
-    * PENDING - A payment is currently in the process of being paid for, or is waiting on a process to complete
-    */
-    public static final String PAYMENT_STATUS_PENDING = "PENDING";
-    /**
-    * PAID - The invoice has been paid
-    */
-    public static final String PAYMENT_STATUS_PAID = "PAID";
-    /**
-    * DECLINED - A payment failed when trying to be paid
-    */
-    public static final String PAYMENT_STATUS_DECLINED = "DECLINED";
-    /**
-    * NONREQUIRED - No payment is required to pay for the invoice
-    */
-    public static final String PAYMENT_STATUS_NONREQUIRED = "NONREQUIRED";
     /**
     * List of lines  to the invoice
     */
@@ -271,6 +219,11 @@ public class ESDRecordCustomerInvoice
     * Number of the customer's purchase order that may be associated to the customer invoice. This may be used for referencing purposes.
     */
     public String purchaseOrderNumber = new String();
+	
+	/**
+    * Code of the customer's purchase order that may be associated to the customer invoice. The code may contain the purchase order number and any prefix or suffix text.
+    */
+    public String purchaseOrderCode = new String();
 
     /**
     * ID of the system that the purchasing entity stores its data within.
@@ -666,9 +619,9 @@ public class ESDRecordCustomerInvoice
     }
 
     /**
-    * s default values for members that have no values 
+    * sets default values for members that have no values 
     */
-    public void DefaultValuesForNullMembers(){
+    public void setDefaultValuesForNullMembers(){
         if (lines == null)
         {
             lines = new ArrayList<ESDRecordCustomerInvoiceLine>();
@@ -843,12 +796,12 @@ public class ESDRecordCustomerInvoice
          
         if (paymentStatus == null)
         {
-            paymentStatus = PAYMENT_STATUS_UNPAID;
+            paymentStatus = ESDocumentConstants.PAYMENT_STATUS_UNPAID;
         }
          
         if (paymentMethod == null)
         {
-            paymentMethod = PAYMENT_METHOD_UNPAID;
+            paymentMethod = ESDocumentConstants.PAYMENT_METHOD_UNPAID;
         }
          
         if (paymentProprietaryCode == null)

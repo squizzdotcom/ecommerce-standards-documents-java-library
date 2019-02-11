@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -44,17 +44,17 @@ public class ESDRecordOrderSaleLine
     public String purchaseOrderLineNumber = new String();
 
     /**
-    * Code of the location that order line is assigned to.
+    * Code of the location that order line is assigned to.  This location may override the default location assigned to the order that specifies where the products are picked/packed/delivered/managed from.
     */
     public String locationCode = new String();
 
     /**
-    * Name of the location that the order line is assigned to.
+    * Name of the location that the order line is assigned to. This location may override the default location assigned to the order that specifies where the products are picked/packed/delivered/managed from.
     */
     public String locationName = new String();
 
     /**
-    * Key of the location record that the order line is assigned to.
+    * Key of the location record that the order line is assigned to. This location may override the default location assigned to the order that specifies where the products are picked/packed/delivered/managed from.
     */
     public String keyLocationID = new String();
 	
@@ -333,6 +333,21 @@ public class ESDRecordOrderSaleLine
     * code of the labour in the purchase order associated to the sales order
     */
     public String purchaseOrderLabourCode = new String();
+	
+	/**
+    * Key of the general ledger account that the line is assigned to. This links the invoice line to the general ledger account that the sale may be reported against for accounting purposes.
+	*/
+	public String keyGLAccountID = new String();
+
+	/**
+    * Code of the general ledger account that the line is assigned to. The code can be used to identify the general ledger account that the sale may be reported against for accounting purposes.
+	*/
+	public String glAccountCode = new String();
+
+	/**
+    * Name of the general ledger account that the line is assigned to. The name can be used to identify the general ledger account that the sale may be reported against for accounting purposes.
+	*/
+	public String glAccountName = new String();
     
     /**
     * text to describe details or comment of a text line
@@ -606,6 +621,18 @@ public class ESDRecordOrderSaleLine
         {
             textDescription = "";
         }
+		
+		if (keyGLAccountID == null){
+			keyGLAccountID = "";
+		}
+
+		if (glAccountCode == null){
+			glAccountCode = "";
+		}
+
+		if (glAccountName == null){
+			glAccountName = "";
+		}
          
         if (internalID == null)
         {

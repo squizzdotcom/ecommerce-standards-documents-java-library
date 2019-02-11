@@ -1,11 +1,12 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2010 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
 
+import java.util.ArrayList;
 import org.esd.EcommerceStandardsDocuments.ESDRecordCustomerAccountEnquiryInvoiceLine;
 
 /**
@@ -369,4 +370,184 @@ public class ESDRecordCustomerAccountEnquiryInvoice
     * List of lines in the invoice
     */
     public ESDRecordCustomerAccountEnquiryInvoiceLine[] lines = new ESDRecordCustomerAccountEnquiryInvoiceLine[]{};
+	
+	/**
+     * Converts the customer account enquiry invoice record into a customer invoice record
+     * @return customer invoice record and its lines
+     */
+    public ESDRecordCustomerInvoice convertToCustomerInvoiceRecord()
+    {
+        ESDRecordCustomerInvoice customerInvoiceRecord = new ESDRecordCustomerInvoice();
+        
+        customerInvoiceRecord.keyCustomerInvoiceID = keyInvoiceID;
+        customerInvoiceRecord.customerInvoiceCode = invoiceID;
+        customerInvoiceRecord.customerInvoiceNumber = invoiceNumber;
+        customerInvoiceRecord.keyCustomerAccountID = keyCustomerAccountID;
+        customerInvoiceRecord.customerAccountCode = customerAccountCode;
+        customerInvoiceRecord.createdDate = creationDate;
+        customerInvoiceRecord.sentDate = invoiceDate;
+        customerInvoiceRecord.processedDate = invoiceDate;
+        customerInvoiceRecord.dispatchedDate = deliveredDate;
+		customerInvoiceRecord.paymentDueDate = dueDate;
+        customerInvoiceRecord.keyLocationID = keyLocationID;
+        customerInvoiceRecord.locationCode = locationCode;
+        customerInvoiceRecord.locationName = locationLabel;
+		customerInvoiceRecord.purchaseOrderNumber = customerReference;
+		customerInvoiceRecord.purchaseOrderCode = customerReference;
+        
+        if(referenceType.equalsIgnoreCase(ESDocumentConstants.RECORD_TYPE_ORDER_SALE)){
+            customerInvoiceRecord.salesOrderNumber = referenceNumber;
+			customerInvoiceRecord.salesOrderCode = referenceNumber;
+			customerInvoiceRecord.keySalesOrderID = referenceKeyID;
+        }else if(referenceType.equalsIgnoreCase(ESDocumentConstants.RECORD_TYPE_ORDER_PURCHASE)){
+            customerInvoiceRecord.purchaseOrderNumber = referenceNumber;
+			customerInvoiceRecord.purchaseOrderCode = referenceNumber;
+        }
+        
+        customerInvoiceRecord.salesRepCode = salesRepCode;
+        customerInvoiceRecord.salesRepName = salesRepName;
+        customerInvoiceRecord.deliveryContact = deliveryContact;
+        customerInvoiceRecord.deliveryOrgName = deliveryOrgName;
+        customerInvoiceRecord.deliveryAddress1 = deliveryAddress1;
+        customerInvoiceRecord.deliveryAddress2 = deliveryAddress2;
+        customerInvoiceRecord.deliveryAddress3 = deliveryAddress3;
+        customerInvoiceRecord.deliveryRegionName = deliveryStateProvince;
+        customerInvoiceRecord.deliveryCountryName = deliveryCountry;
+        customerInvoiceRecord.deliveryCountryCodeISO2 = deliveryCountryCodeISO2;
+        customerInvoiceRecord.deliveryCountryCodeISO3 = deliveryCountryCodeISO3;
+        customerInvoiceRecord.deliveryPostcode = deliveryPostcode;
+        customerInvoiceRecord.billingContact = billingContact;
+        customerInvoiceRecord.billingOrgName = billingOrgName;
+        customerInvoiceRecord.deliveryAddress1 = billingAddress1;
+        customerInvoiceRecord.deliveryAddress2 = billingAddress2;
+        customerInvoiceRecord.deliveryAddress3 = billingAddress3;
+        customerInvoiceRecord.billingRegionName = billingStateProvince;
+        customerInvoiceRecord.billingCountryName = billingCountry;
+        customerInvoiceRecord.billingCountryCodeISO2 = billingCountryCodeISO2;
+        customerInvoiceRecord.billingCountryCodeISO3 = billingCountryCodeISO3;
+        customerInvoiceRecord.billingPostcode = billingPostcode;
+        customerInvoiceRecord.totalPriceExTax = totalExTax;
+        customerInvoiceRecord.totalPriceIncTax = totalIncTax;
+        customerInvoiceRecord.totalTax = totalTax;
+		customerInvoiceRecord.totalPriceUndiscountedExTax = totalExTax + totalDiscountsExTax;
+		customerInvoiceRecord.totalPriceUndiscountedIncTax = totalIncTax + totalDiscountsIncTax;
+		customerInvoiceRecord.totalPriceUndiscountedTax = customerInvoiceRecord.totalPriceUndiscountedIncTax - customerInvoiceRecord.totalPriceUndiscountedExTax;
+        customerInvoiceRecord.paymentAmount = totalPaid;
+        customerInvoiceRecord.currencyISOCode = currencyCode;
+        customerInvoiceRecord.instructions = comment;
+        customerInvoiceRecord.freightCarrierCode = freightCarrierCode;
+        customerInvoiceRecord.freightCarrierName = freightCarrierName;
+        customerInvoiceRecord.freightSystemRefCode = freightSystemRefCode;
+        customerInvoiceRecord.freightCarrierConsignCode = freightCarrierConsignCode;
+        customerInvoiceRecord.freightCarrierTrackingCode = freightCarrierTrackingCode;
+        customerInvoiceRecord.freightCarrierServiceCode = freightCarrierServiceCode;
+        customerInvoiceRecord.freightCarrierAccountCode = freightCarrierAccountCode;
+		double linesTotalPriceIncTax = 0;
+        
+        //add lines for customer invoice
+        ArrayList<ESDRecordCustomerInvoiceLine> customerInvoiceLines = new ArrayList<ESDRecordCustomerInvoiceLine>();
+		
+        if(lines != null){
+            for(int i = 0; i < lines.length; i++){
+				//set item line as a product line
+                if(lines[i].lineType.equalsIgnoreCase(ESDocumentConstants.RECORD_LINE_TYPE_ITEM))
+                {
+                    ESDRecordCustomerInvoiceLine invoiceline = new ESDRecordCustomerInvoiceLine();
+					invoiceline.lineType = ESDocumentConstants.INVOICE_LINE_TYPE_PRODUCT;
+					invoiceline.keyProductID = lines[i].lineItemID;
+					invoiceline.productCode = lines[i].lineItemCode;
+					invoiceline.productDescription = lines[i].description;
+                    invoiceline.language = lines[i].language;
+                    invoiceline.unitName = lines[i].unit;
+                    invoiceline.UNSPSC = lines[i].UNSPSC;
+                    invoiceline.quantityBackordered = lines[i].quantityBackordered;
+					invoiceline.quantityInvoiced = lines[i].quantityDelivered;
+					invoiceline.quantityDelivered = lines[i].quantityDelivered;
+					invoiceline.quantityOrdered = lines[i].quantityOrdered;
+                    invoiceline.priceExTax = lines[i].priceExTax;
+                    invoiceline.priceIncTax = lines[i].priceIncTax;
+                    invoiceline.priceTax = lines[i].priceTax;
+                    invoiceline.priceTotalExTax = lines[i].totalPriceExTax;
+                    invoiceline.priceTotalIncTax = lines[i].totalPriceIncTax;
+                    invoiceline.priceTotalTax = lines[i].totalPriceTax;
+                    invoiceline.locationCode = lines[i].locationCode;
+                    invoiceline.keyLocationID = lines[i].keyLocationID;
+                    invoiceline.purchaseOrderProductCode = lines[i].referenceLineItemCode;
+                    invoiceline.purchaseOrderLineCode = lines[i].referenceLineCode;
+					invoiceline.attributes = new ArrayList<ESDRecordInvoiceLineAttributeProfile>();
+                    invoiceline.taxes = new ArrayList<ESDRecordInvoiceLineTax>();
+					linesTotalPriceIncTax += invoiceline.priceTotalIncTax;
+                    
+                    if(lines[i].taxCode != null && !lines[i].taxCode.isEmpty()){
+                        ESDRecordInvoiceLineTax tax = new ESDRecordInvoiceLineTax();
+                        tax.taxcode = lines[i].taxCode;
+                        tax.priceTax = lines[i].priceTax;
+                        tax.priceTotalTax = lines[i].totalPriceTax;
+                        tax.language = lines[i].language;
+                        tax.quantity = lines[i].quantityOrdered;
+                        invoiceline.taxes.add(tax);
+                    }
+                    
+                    customerInvoiceLines.add(invoiceline);
+                }
+				//add text line to the invoice
+				else if(lines[i].lineType.equalsIgnoreCase(ESDocumentConstants.RECORD_LINE_TYPE_TEXT))
+				{
+					ESDRecordCustomerInvoiceLine invoiceline = new ESDRecordCustomerInvoiceLine();
+					invoiceline.lineType = ESDocumentConstants.INVOICE_LINE_TYPE_TEXT;
+					invoiceline.textDescription = lines[i].description;
+                    invoiceline.language = lines[i].language;
+                    invoiceline.unitName = lines[i].unit;
+                    invoiceline.UNSPSC = lines[i].UNSPSC;
+                    invoiceline.quantityBackordered = lines[i].quantityBackordered;
+					invoiceline.quantityInvoiced = lines[i].quantityDelivered;
+					invoiceline.quantityDelivered = lines[i].quantityDelivered;
+					invoiceline.quantityOrdered = lines[i].quantityOrdered;
+                    invoiceline.priceExTax = lines[i].priceExTax;
+                    invoiceline.priceIncTax = lines[i].priceIncTax;
+                    invoiceline.priceTax = lines[i].priceTax;
+                    invoiceline.priceTotalExTax = lines[i].totalPriceExTax;
+                    invoiceline.priceTotalIncTax = lines[i].totalPriceIncTax;
+                    invoiceline.priceTotalTax = lines[i].totalPriceTax;
+                    invoiceline.locationCode = lines[i].locationCode;
+                    invoiceline.keyLocationID = lines[i].keyLocationID;
+                    invoiceline.purchaseOrderProductCode = lines[i].referenceLineItemCode;
+                    invoiceline.purchaseOrderLineCode = lines[i].referenceLineCode;
+					invoiceline.attributes = new ArrayList<ESDRecordInvoiceLineAttributeProfile>();
+                    invoiceline.taxes = new ArrayList<ESDRecordInvoiceLineTax>();
+                    customerInvoiceLines.add(invoiceline);
+				}
+            }
+        }
+		
+		//if a freight amount is applied against the invoice then add the surcharge to it if a line didn't already cover the surcharge
+		if(totalFreightIncTax > 0 && totalFreightIncTax <= totalIncTax - linesTotalPriceIncTax)
+		{
+			ESDRecordInvoiceSurcharge surcharge = new ESDRecordInvoiceSurcharge();
+			surcharge.priceExTax = totalFreightExTax;
+			surcharge.priceIncTax = totalFreightIncTax;
+			surcharge.priceTax = totalFreightIncTax - totalFreightExTax;
+			surcharge.surchargeDescription = "Freight";
+			surcharge.taxes = new ArrayList<ESDRecordInvoiceLineTax>();
+			
+			if(surcharge.priceIncTax > 0){
+				ESDRecordInvoiceLineTax tax = new ESDRecordInvoiceLineTax();
+				tax.taxcode = "";
+				tax.priceTax = surcharge.priceTax;
+				tax.priceTotalTax = surcharge.priceTax;
+				tax.quantity = 1;
+				surcharge.taxes.add(tax);
+			}
+		}		
+        
+		//add lines, surcharges and payments to the invoice record
+		customerInvoiceRecord.lines = customerInvoiceLines;
+		customerInvoiceRecord.surcharges = new ArrayList<ESDRecordInvoiceSurcharge>();
+		customerInvoiceRecord.payments = new ArrayList<ESDRecordInvoicePayment>();
+		
+		//remove null values from invoice record properties
+		customerInvoiceRecord.setDefaultValuesForNullMembers();
+		
+        return customerInvoiceRecord;
+    }
 }

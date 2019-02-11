@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The purchase order data has been successfully obtained.",
 * "configs":{},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.1,
+* "version": 1.3,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [
@@ -169,6 +169,9 @@ import java.util.HashMap;
 * "depthUnitMeasureCode": "METRES",
 * "volumeUnitMeasureCode": "METRES-CUBED",
 * "weightUnitMeasureCode": "KG",
+* "keyGLAccountID": "GLA2",
+* "glAccountCode": "570",
+* "glAccountName": "Office Expense",
 * "taxes":
 * [
 * {
@@ -320,6 +323,25 @@ import java.util.HashMap;
 * ]
 * }
 * ]
+* }
+* ],
+* "payments": 
+* [
+* {
+*	"paymentMethod": "PROPRIETARY",
+*	"paymentAmount": 20.00,
+*	"paymentReceipt": "PP-12321-543221",
+*	"paymentProprietaryCode": "PAYPAL",
+*	"keyPaymentTypeID": "943",
+*  	"paidDate": 1451739600000
+* },
+* {
+*	"paymentMethod": "PROPRIETARY",
+*	"paymentAmount": 10.00,
+*	"paymentReceipt": "ZP-12321",
+*	"paymentProprietaryCode": "ZIPPAY",
+*	"keyPaymentTypeID": "432",
+*	"paidDate": 1451739600000
 * }
 * ]
 * }

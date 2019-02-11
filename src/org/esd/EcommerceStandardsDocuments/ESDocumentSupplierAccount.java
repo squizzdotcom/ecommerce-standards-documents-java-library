@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The supplier account data has been successfully obtained.",
 * "configs":{"dataFields":"keySupplierAccountID,keyPriceLevelID,supplierAccountCode,accountName,contactName,orgName,authorityNumbers,authorityNumberLabels,authorityNumberTypes,email,accountClass,paymentTypes,territory,shippingMethod,isOnHold,isOutsideBalance,isOutsideTerms,balance,limit,termsType,termsDescription,termsValue1,termsValue2"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.1,
+* "version": 1.3,
 * "totalDataRecords": 3,
 * "dataRecords":
 * [
@@ -38,6 +38,7 @@ import java.util.HashMap;
 * "authorityNumberLabels":["ABN", "ACN"],
 * "authorityNumberTypes":[1,2],
 * "email":"js@esdstandards.somewhere",
+* "phone":"+614124567890",
 * "accountClass":"primary",
 * "paymentTypes":"CC",
 * "territory":"Melb Rural",
@@ -50,7 +51,8 @@ import java.util.HashMap;
 * "termsType":"GND",
 * "termsDescription":"Pay before 14 days",
 * "termsValue1":"14",
-* "termsValue2":""
+* "termsValue2":"",
+* "keyGLAccountID":"6011-Stationery"
 * },
 * {
 * "keySupplierAccountID":"SUP3",
@@ -75,7 +77,8 @@ import java.util.HashMap;
 * "termsType":"DOM",
 * "termsDescription":"Pay on the 15th day of the month",
 * "termsValue1":"15",
-* "termsValue2":""
+* "termsValue2":"",
+* "keyGLAccountID":"6012-Electricity"
 * }
 * ]
 * }

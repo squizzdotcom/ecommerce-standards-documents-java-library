@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2018 Squizz PTY LTD
+* Copyright (C) 2019 Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The customer invoice data has been successfully obtained.",
 * "configs":{},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.1,
+* "version": 1.3,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [
@@ -158,6 +158,7 @@ import java.util.HashMap;
 * "isPriceFree": "N",
 * "entitySetPrice": "SYSTEM",
 * "unitName": "REAM",
+* "UNSPSC": "14115",
 * "priceReferenceCode": "SALE-34",
 * "priceReferenceType": "C",
 * "isKitted": "N",
@@ -167,6 +168,8 @@ import java.util.HashMap;
 * "productCode": "PROD-001",
 * "productName": "Swisho Green Paper",
 * "productDescription": "Swisho green coloured paper is the ultimate green paper.",
+* "supplierInvoiceProductCode":"SWISH-001",
+* "salesOrderProductCode":"SUP-PRODUCT-GREEN-PAPER",
 * "purchaseOrderProductCode": "SWISH-001",
 * "width": 20.1,
 * "height": 21,
@@ -178,6 +181,9 @@ import java.util.HashMap;
 * "depthUnitMeasureCode": "METRES",
 * "volumeUnitMeasureCode": "METRES-CUBED",
 * "weightUnitMeasureCode": "KG",
+* "keyGLAccountID":"GLAB",
+* "glAccountCode":"410",
+* "glAccountName":"Sales Income",
 * "taxes":
 * [
 * {
@@ -253,6 +259,8 @@ import java.util.HashMap;
 * "downloadCode": "Download 2",
 * "downloadName": "Track01 - Standards",
 * "downloadDescription": "Listen to My Rock Band's first track off their new album called Standards.",
+* "supplierInvoiceDownloadCode":"DOWN-1234",
+* "salesOrderDownloadCode":"SUP-DOWNLOAD-TRACK01",
 * "purchaseOrderDownloadCode": "DOWN-1234",
 * "taxes":
 * [
@@ -287,6 +295,8 @@ import java.util.HashMap;
 * "labourCode": "DELIVERY-HELP",
 * "labourName": "Paper Delivery Help",
 * "labourDescription": "Service to help deliver and place paper products internally at the delivery address",
+* "supplierInvoiceLabourCode":"LAB-1234",
+* "salesOrderLabourCode":"SUP-LABOUR-DELIVERY",
 * "purchaseOrderLabourCode": "LAB-1234",
 * "taxes":
 * [
@@ -301,6 +311,10 @@ import java.util.HashMap;
 * "priceTotalTax": 4.00
 * }
 * ]
+* },
+* {
+*	"lineType":"TEXT",
+*	"textDescription":"This invoice needs urgent payment to ensure that the supply of future deliveries continues"
 * }
 * ],
 * "surcharges":
