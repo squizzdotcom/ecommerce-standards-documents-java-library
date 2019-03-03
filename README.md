@@ -6,4 +6,4 @@ To get a basic understanding of how to library in Java applications it is recomm
 
 - [Documentation](https://www.squizz.com/esd/index.html)
 - [License](LICENSE)
-- Current Library Version 1.1
+- Current Library Version 1.3
