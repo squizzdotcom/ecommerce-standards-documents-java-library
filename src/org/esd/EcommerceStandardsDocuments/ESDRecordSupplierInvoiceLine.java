@@ -440,7 +440,7 @@ public class ESDRecordSupplierInvoiceLine
     /**
     * s default values for members that have no values 
     */
-    public void DefaultValuesForNullMembers(){
+    public void setDefaultValuesForNullMembers(){
         if (attributes == null)
         {
             attributes = new ArrayList<ESDRecordInvoiceLineAttributeProfile>();
@@ -463,6 +463,7 @@ public class ESDRecordSupplierInvoiceLine
                 lineTax.setDefaultValuesForNullMembers();
             }
         }
+		
         if (lineType == null)
         {
             lineType = "";

@@ -631,16 +631,28 @@ public class ESDRecordSupplierInvoice
     /**
     * s default values for members that have no values 
     */
-    public void DefaultValuesForNullMembers(){
+    public void setDefaultValuesForNullMembers(){
         if (lines == null)
         {
             lines = new ArrayList<ESDRecordSupplierInvoiceLine>();
         }
+		else{
+			for (ESDRecordSupplierInvoiceLine line : lines)
+            {
+                line.setDefaultValuesForNullMembers();
+            }
+		}
          
         if (surcharges == null)
         {
             surcharges = new ArrayList<ESDRecordInvoiceSurcharge>();
         }
+		else{
+			for (ESDRecordInvoiceSurcharge surcharge : surcharges)
+            {
+                surcharge.setDefaultValuesForNullMembers();
+            }
+		}
          
         if (payments == null)
         {
