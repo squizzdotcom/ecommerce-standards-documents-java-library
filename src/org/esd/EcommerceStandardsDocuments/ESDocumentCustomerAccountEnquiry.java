@@ -1,10 +1,11 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.HashMap;
 
 /**
@@ -17,7 +18,7 @@ import java.util.HashMap;
 * "message":"The customer account enquiry transaction data has been successfully obtained.",
 * "configs": {},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.3,
+* "version": 1.4,
 * "totalDataRecords": 5,
 * "transactionRecords":
 * [
@@ -1108,36 +1109,43 @@ public class ESDocumentCustomerAccountEnquiry  extends ESDocument
     /**
     * list of Customer Account Enquiry Invoice records.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordCustomerAccountEnquiryInvoice[] invoiceRecords = new ESDRecordCustomerAccountEnquiryInvoice[]{};
 
     /**
     * list of Customer Account Enquiry Order Sale records.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordCustomerAccountEnquiryOrderSale[] orderSaleRecords = new ESDRecordCustomerAccountEnquiryOrderSale[]{};
 
     /**
     * list of Customer Account Enquiry Back Order records.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordCustomerAccountEnquiryBackOrder[] backOrderRecords = new ESDRecordCustomerAccountEnquiryBackOrder[]{};
 
     /**
     * list of Customer Account Enquiry Transaction records.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordCustomerAccountEnquiryTransaction[] transactionRecords = new ESDRecordCustomerAccountEnquiryTransaction[]{};
 
     /**
     * list of Customer Account Enquiry Payment records.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordCustomerAccountEnquiryPayment[] paymentRecords = new ESDRecordCustomerAccountEnquiryPayment[]{};
 
     /**
     * list of Customer Account Enquiry Credit records.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordCustomerAccountEnquiryCredit[] creditRecords = new ESDRecordCustomerAccountEnquiryCredit[]{};
 	
 	/**
     * list of Customer Account Enquiry quote records.
 	*/
+	@JsonInclude(JsonInclude.Include.ALWAYS)
 	public ESDRecordCustomerAccountEnquiryQuote[] quoteRecords = new ESDRecordCustomerAccountEnquiryQuote[]{};
 
     /**

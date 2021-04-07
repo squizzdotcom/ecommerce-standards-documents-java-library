@@ -305,27 +305,27 @@ public class ESDRecordCustomerInvoiceLine
     public double weight = 0;
 
     /**
-    * Code of the product's width measurement to define the unit of measurement.
+    * Code of the product's width measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_LENGTH_ in the ESDocumentConstants class
     */
     public String widthUnitMeasureCode = new String();
 
     /**
-    * Code of the product's height measurement to define the unit of measurement.
+    * Code of the product's height measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_LENGTH_ in the ESDocumentConstants class
     */
     public String heightUnitMeasureCode = new String();
 
     /**
-    * Code of the product's depth measurement to define the unit of measurement.
+    * Code of the product's depth measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_LENGTH_ in the ESDocumentConstants class
     */
     public String depthUnitMeasureCode = new String();
 
     /**
-    * Code of the product's volume measurement to define the unit of measurement.
+    * Code of the product's volume measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_VOLUME_ in the ESDocumentConstants class
     */
     public String volumeUnitMeasureCode = new String();
 
     /**
-    * Code of the product's weight measurement to define the unit of measurement.
+    * Code of the product's weight measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_MASS_ in the ESDocumentConstants class
     */
     public String weightUnitMeasureCode = new String();
 

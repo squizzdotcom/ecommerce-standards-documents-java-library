@@ -7,19 +7,34 @@
 package org.esd.EcommerceStandardsDocuments;
 
 /**
-* Ecommerce Standards Record that holds data for a single price level. A price level allows multiple prices to be set for the same product, download, or labour record
+* Ecommerce Standards record that contains data for a single category tree. A category tree represents an overall hierarchical collection of categories, used to navigate and find associated products, maker models etc.. assigned to each category
 */
-public class ESDRecordPriceLevel   
+public class ESDRecordCategoryTree   
 {
     /**
-    * Key that allows the price-level record to be uniquely identified and linked to.
+    * Key that allows the category record to be uniquely identified and linked to.
     */
-    public String keyPriceLevelID = new String();
+    public String keyCategoryTreeID = new String();
 
     /**
-    * Label of the price level
+    * Code of the category tree. May or may not be a unique identifier.
     */
-    public String label = new String();
+    public String categoryTreeCode = new String();
+
+    /**
+    * Description field of the category tree. It may contain any text used to describe the category tree.
+    */
+    public String name = new String();
+
+    /**
+    * Description field of the category tree. It may contain any text used to describe the category tree.
+    */
+    public String description = new String();
+	
+	/**
+	 * Number to order the category tree by. This may be used to order a number of category trees that appear within a list.
+	 */
+	public int ordering = 0;
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

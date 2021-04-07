@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -42,6 +42,16 @@ public class ESDRecordSellUnit
     * quantity of the unit that makes up its parent unit. If not set then the default would be 1.
     */
     public double parentQuantity = 0;
+	
+	/**
+    * minimum quantity of the sell unit that can be ordered. If not set then the default would be 1.
+    */
+    public double minOrderQuantity = 1;
+	
+	/**
+    * quantity of the sell unit that can be incrementally ordered. Only sell unit quantities that evenly divide by this number should be orderable. If not set then the default would be 1.
+    */
+    public double incrementOrderQuantity = 1;
 
     /**
     * Either
@@ -54,6 +64,66 @@ public class ESDRecordSellUnit
     * Key of the sell unit linked as a parent. This allows the parentQuantity to be related to another unit.
     */
     public String keySellUnitParentID = new String();
+	
+	/**
+    * Weight of a single sell unit.
+    */
+    public double weight = 0;
+	
+	/**
+    * Width dimension of a single sell unit.
+    */
+    public double width = 0;
+	
+	/**
+    * Height dimension of a single sell unit.
+    */
+    public double height = 0;
+	
+	/**
+    * Depth dimension of a single sell unit.
+    */
+    public double depth = 0;
+	
+	/**
+    * Weight of the package that the sell unit is contained within.
+    */
+    public double packageWeight = 0;
+	
+	/**
+    * Width dimension of the package that the sell unit is contained within.
+    */
+    public double packageWidth = 0;
+	
+	/**
+    * Height dimension of the package that the sell unit is contained within.
+    */
+    public double packageHeight = 0;
+	
+	/**
+    * Depth dimension of the package that the sell unit is contained within.
+    */
+    public double packageDepth = 0;
+	
+	/**
+    * Code of the sell unit's width measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_MASS_ in the ESDocumentConstants class
+    */
+    public String widthUnitMeasureCode = new String();
+	
+	/**
+    * Code of the sell unit's height measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_MASS_ in the ESDocumentConstants class
+    */
+    public String heightUnitMeasureCode = new String();
+	
+	/**
+    * Code of the sell unit's depth measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_MASS_ in the ESDocumentConstants class
+    */
+    public String depthUnitMeasureCode = new String();
+	
+	/**
+    * Code of the sell unit's weight measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_MASS_ in the ESDocumentConstants class
+    */
+    public String weightUnitMeasureCode = new String();
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

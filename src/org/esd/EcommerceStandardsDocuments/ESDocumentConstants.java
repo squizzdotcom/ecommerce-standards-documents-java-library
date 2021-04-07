@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -118,7 +118,7 @@ public class ESDocumentConstants
     /**
     * Contains the version that the Ecommerce Standards Documents library is currently at.
     */
-    public static final double ESD_DOCUMENT_VERSION = 1.3;
+    public static final double ESD_DOCUMENT_VERSION = 1.4;
     /**
     * Denotes that the location is a warehouse
     */
@@ -276,6 +276,10 @@ public class ESDocumentConstants
     * Payment method - NONE - No payment was made or needed
     */
     public static final String PAYMENT_METHOD_NONE = "NONE";
+	/**
+    * Payment method - MULTIPLE - Payment has been made using multiple payment methods
+    */
+    public static final String PAYMENT_METHOD_MULTIPLE = "MULTIPLE";
     /**
     * Payment method - PROPRIETARY - A payment was made using a proprietary payment system. PayPal could be one example of this.
     */
@@ -416,6 +420,14 @@ public class ESDocumentConstants
 	 */
 	public static final String DELIVERY_STATUS_DAMAGED_IN_TRANSIT = "DAMAGED_IN_TRANSIT";
 	/**
+	 * Delivery Status - Cancelled - The delivery of the ordered goods was cancelled and will no longer be delivered.
+	 */
+	public static final String DELIVERY_STATUS_CANCELLED = "CANCELLED";
+	/**
+	 * Delivery Status - Awaiting Receiver Pickup - The ordered goods are at a location reading to be picked up by the receiver of the goods.
+	 */
+	public static final String DELIVERY_STATUS_AWAITING_RECEIVER_PICKUP = "AWAITING_RECEIVER_PICKUP";
+	/**
 	 * General Ledger Account Type - Asset - a type of general ledger account that represents the different types of economic resources owned or controlled by an entity. Common examples of asset accounts are cash in hand, cash in bank, real estate, inventory, prepaid expenses, goodwill, and accounts receivable.
 	 */
 	public static final String GENERAL_LEDGER_ACCOUNT_TYPE_ASSET = "ASSET";
@@ -455,4 +467,272 @@ public class ESDocumentConstants
 	 * Currency Type - Virtual - currency that is stored and created through digital mechanisms, and may be invented and/or controlled by a single organisation or other entity.
 	 */
 	public static final String CURRENCY_TYPE_VIRTUAL = "VIRTUAL";
+	
+	/**
+	 * Unit Of Measure - Length - Metre. Base unit of length in the International System of Units (SI). Consists of 100 centimetres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_METRE = "M";
+	/**
+	 * Unit Of Measure - Length - Centimetre. Metric unit. Each centimetre consists of 10 millimetres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_CENTIMETRE = "CM";
+	/**
+	 * Unit Of Measure - Length - Millimetre. Metric unit. Each millimetre consists of 1000 micrometres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_MILLIMETRE = "MM";
+	/**
+	 * Unit Of Measure - Length - Micrometre. Metric unit. Each micrometre consists of 1000 nanomentres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_MICROMETRE = "UM";
+	/**
+	 * Unit Of Measure - Length - Nanometre. Metric unit. Each nanometre consists of 1000 picometres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_NANOMETRE = "NM";
+	/**
+	 * Unit Of Measure - Length - Picometre. Metric unit. Each picometre consists of 1000 femtometres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_PICOMETRE = "PM";
+	/**
+	 * Unit Of Measure - Length - Hectometre. Metric unit. Each hectometre consists of 100 metres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_HECTOMETRE = "HM";
+	/**
+	 * Unit Of Measure - Length - Kilometre. Metric unit. Each kilometre consists of 1000 metres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_KILOMETRE = "KM";
+	/**
+	 * Unit Of Measure - Length - Thou. Imperial unit. 1000 thou's makes up an inch
+	 */
+	public static final String UNIT_MEASURE_LENGTH_THOU = "TH";
+	/**
+	 * Unit Of Measure - Length - Inch. Imperial unit. Each inch consists of 2.54 centimetres
+	 */
+	public static final String UNIT_MEASURE_LENGTH_INCH = "IN";
+	/**
+	 * Unit Of Measure - Length - Foot. Imperial unit. Each foot consists of 12 inches
+	 */
+	public static final String UNIT_MEASURE_LENGTH_FOOT = "FT";
+	/**
+	 * Unit Of Measure - Length - Yard. Imperial unit. Each yard consists of 3 feet
+	 */
+	public static final String UNIT_MEASURE_LENGTH_YARD = "YD";
+	/**
+	 * Unit Of Measure - Length - Chain. Imperial unit. Each chain consists of 22 yards.
+	 */
+	public static final String UNIT_MEASURE_LENGTH_CHAIN = "CH";
+	/**
+	 * Unit Of Measure - Length - Furlong. Imperial unit. Each furlong consists of 10 chains
+	 */
+	public static final String UNIT_MEASURE_LENGTH_FURLONG = "FUR";
+	/**
+	 * Unit Of Measure - Length - Mile. Imperial unit. Each mile consists of 8 furlongs
+	 */
+	public static final String UNIT_MEASURE_LENGTH_MILE = "MI";
+	
+	/**
+	 * Unit Of Measure - Mass - Kilogram. Metric unit. Base unit of length in the International System of Units (SI). Consists of 1000 grams
+	 */
+	public static final String UNIT_MEASURE_MASS_KILOGRAM = "KG";
+	/**
+	 * Unit Of Measure - Mass - gram. Metric unit. Each gram consists of 1000 milligrams
+	 */
+	public static final String UNIT_MEASURE_MASS_GRAM = "G";
+	/**
+	 * Unit Of Measure - Mass - Milligram. Metric unit. Each milligram consists of 1000 micrograms
+	 */
+	public static final String UNIT_MEASURE_MASS_MILLIGRAM = "MG";
+	/**
+	 * Unit Of Measure - Mass - Microgram. Metric unit. Each microgram consists of 1000 nanograms
+	 */
+	public static final String UNIT_MEASURE_MASS_MICROGRAM = "UG";
+	/**
+	 * Unit Of Measure - Mass - Nanogram. Metric unit. Each nanogram consists of 1000 picograms
+	 */
+	public static final String UNIT_MEASURE_MASS_NANOGRAM = "NG";
+	/**
+	 * Unit Of Measure - Mass - Picogram. Metric unit. Each picogram consists of 1000 femtograms
+	 */
+	public static final String UNIT_MEASURE_MASS_PICOGRAM = "PG";
+	/**
+	 * Unit Of Measure - Mass - Metric Tonne. Metric unit. Less widely known as a Megagram. Each metric tonne consists of 1000 kilograms
+	 */
+	public static final String UNIT_MEASURE_MASS_TONNE_METRIC = "T";
+	/**
+	 * Unit Of Measure - Mass - Mega Tonne. Metric unit. Each mega tonne consists of 1000 metric tonnes
+	 */
+	public static final String UNIT_MEASURE_MASS_MEGATONNE = "MT";
+	/**
+	 * Unit Of Measure - Mass - Giga Tonne. Metric unit. Each giga tonne consists of 1000 mega tonnes
+	 */
+	public static final String UNIT_MEASURE_MASS_GIGATONNE = "GT";
+	/**
+	 * Unit Of Measure - Mass - Grain. Imperial unit. 7000 grains make up a pound
+	 */
+	public static final String UNIT_MEASURE_MASS_GRAIN = "GR";
+	/**
+	 * Unit Of Measure - Mass - Ounce. Imperial unit. Each once consists of 16 drams
+	 */
+	public static final String UNIT_MEASURE_MASS_OUNCE = "OZ";
+	/**
+	 * Unit Of Measure - Mass - Pound. Imperial unit. Each pound consists of 16 ounces
+	 */
+	public static final String UNIT_MEASURE_MASS_POUND = "LB";
+	/**
+	 * Unit Of Measure - Mass - Stone. Imperial unit. Each stone consists of 14 pounds
+	 */
+	public static final String UNIT_MEASURE_MASS_STONE = "ST";
+	/**
+	 * Unit Of Measure - Mass - Quarter. Imperial unit. Each quarter consists of 28 pounds
+	 */
+	public static final String UNIT_MEASURE_MASS_QUARTER = "QR";
+	/**
+	 * Unit Of Measure - Mass - Hundredweight (Long). Imperial unit. Each long hundredweight consists of 8 stone, 112 pounds
+	 */
+	public static final String UNIT_MEASURE_MASS_HUNDREDWEIGHT_LONG = "CWTL";
+	/**
+	 * Unit Of Measure - Mass - Hundredweight (Short). Imperial unit. Each short hundredweight consists of 100 pounds
+	 */
+	public static final String UNIT_MEASURE_MASS_HUNDREDWEIGHT_SHORT = "CWTS";
+	/**
+	 * Unit Of Measure - Mass - Imperial Ton (Long). Imperial unit. Each long ton consists of 2240 pounds
+	 */
+	public static final String UNIT_MEASURE_MASS_TON_LONG = "TONL";
+	/**
+	 * Unit Of Measure - Mass - Imperial Ton (Short). Imperial unit. Each short ton consists of 2000 pounds
+	 */
+	public static final String UNIT_MEASURE_MASS_TON_SHORT = "TONS";
+	
+	/**
+	 * Unit Of Measure - Volume - Cubic Metre. Base unit of volume in the International System of Units (SI).
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_METRE = "M3";
+	/**
+	 * Unit Of Measure - Volume - Cubic Centimetre. Metric unit. Each cubic centimetre consists of 1000 cubic millimetres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_CENTIMETRE = "CM3";
+	/**
+	 * Unit Of Measure - Volume - Millimetre. Metric unit. Each cubic millimetre consists of 1,000,000,000 cubic micrometres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_MILLIMETRE = "MM3";
+	/**
+	 * Unit Of Measure - Volume - Micrometre. Metric unit. Each cubic micrometre consists of 1000,000,000 cubic nanomentres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_MICROMETRE = "UM3";
+	/**
+	 * Unit Of Measure - Volume - Nanometre. Metric unit. Each cubic nanometre consists of 1,000,000,000 cubic picometres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_NANOMETRE = "NM3";
+	/**
+	 * Unit Of Measure - Volume - Picometre. Metric unit. Each cubic picometre consists of 1,000,000,000 cubic femtometres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_PICOMETRE = "PM3";
+	/**
+	 * Unit Of Measure - Volume - Hectometre. Metric unit. Each hectometre consists of 1,000,000 cubic metres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_HECTOMETRE = "HM3";
+	/**
+	 * Unit Of Measure - Volume - Kilometre. Metric unit. Each kilometre consists of 1,000,000,000 cubic metres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_KILOMETRE = "KM3";
+	/**
+	 * Unit Of Measure - Volume - Cubic Inch. Imperial unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_INCH = "IN3";
+	/**
+	 * Unit Of Measure - Volume - Cubic Foot. Imperial unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_FOOT = "FT3";
+	/**
+	 * Unit Of Measure - Volume - Cubic Yard. Imperial unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_YARD = "YD3";
+	/**
+	 * Unit Of Measure - Volume - Cubic Mile. Imperial unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_CUBIC_MILE = "MI3";
+	/**
+	 * Unit Of Measure - Volume - Measurement tone. Imperial unit. Also known as a shipping ton.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_MEASUREMENT_TON = "MTON";
+	
+	/**
+	 * Unit Of Measure - Volume - Litre. Metric liquid unit. Each litre conists of 100 centilitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_LITRE = "L";
+	/**
+	 * Unit Of Measure - Volume - Cubic Centilitre. Metric liquid unit. Each cubic centilitre consists of 1000 millilitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_CENTILITRE = "CL";
+	/**
+	 * Unit Of Measure - Volume - Millilitre. Metric liquid unit. Each cubic millilitre consists of 1000 microlitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_MILLILITRE = "ML";
+	/**
+	 * Unit Of Measure - Volume - Microlitre. Metric liquid unit. Each cubic microlitre consists of 1000 nanolitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_MICROLITRE = "UL";
+	/**
+	 * Unit Of Measure - Volume - Nanolitre. Metric liquid unit. Each cubic nanolitre consists of 1000 picolitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_NANOLITRE = "NL";
+	/**
+	 * Unit Of Measure - Volume - Picolitre. Metric liquid unit. Each cubic picolitre consists of 1000 femtolitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_PICOLITRE = "PL";
+	/**
+	 * Unit Of Measure - Volume - Hectolitre. Metric liquid unit. Each hectolitre consists of 1000 litres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_HECTOLITRE = "HL";
+	/**
+	 * Unit Of Measure - Volume - Kilolitre. Metric liquid unit. Each kilolitre consists of 1000 litres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_KILOLITRE = "KL";
+	/**
+	 * Unit Of Measure - Volume - Megalitre. Metric liquid unit. Each kilolitre consists of 1000 kilolitres
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_MEGALITRE = "MGL";
+	/**
+	 * Unit Of Measure - Volume - Gigalitre. Metric liquid unit. Each gigalitre consists of 1000 gigalitre
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_GIGALITRE = "GL";
+	/**
+	 * Unit Of Measure - Volume - Fluid Ounce. Imperial liquid unit. Each fluid ounce consists of 1 imperial ounce
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_IMPERIAL_FLUID_OUNCE = "IMPFLOZ";
+	/**
+	 * Unit Of Measure - Volume - Gill. Imperial liquid unit. Each gill consists of 5 imperial ounces
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_IMPERIAL_GILL = "IMPGI";
+	/**
+	 * Unit Of Measure - Volume - Pint. Imperial liquid unit. Each pint consists of 20 imperial ounces
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_IMPERIAL_PINT = "IMPPT";
+	/**
+	 * Unit Of Measure - Volume - Quart. Imperial liquid unit. Each quart consists of 2 imperial pints
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_IMPERIAL_QUART = "IMPQT";
+	/**
+	 * Unit Of Measure - Volume - Gallon. Imperial liquid unit. Each gallon consists of 8 imperial pints
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_IMPERIAL_GALLON = "IMPGAL";
+	/**
+	 * Unit Of Measure - Volume - Fluid Ounce. United States liquid unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_US_FLUID_OUNCE = "USFLOZ";
+	/**
+	 * Unit Of Measure - Volume - Gill. United States liquid unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_US_GILL = "USGI";
+	/**
+	 * Unit Of Measure - Volume - Pint. United States liquid unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_US_PINT = "USPT";
+	/**
+	 * Unit Of Measure - Volume - Quart. United States liquid unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_US_QUART = "USQT";
+	/**
+	 * Unit Of Measure - Volume - Gallon. United States liquid unit.
+	 */
+	public static final String UNIT_MEASURE_VOLUME_LIQUID_US_GALLON = "USGAL";
 }

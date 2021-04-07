@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -33,6 +33,9 @@ public class ESDocumentType
     public static final int KIT = 22;
     public static final int LABOUR = 35;
     public static final int LOCATION = 23;
+	public static final int MAKER = 44;
+	public static final int MAKER_MODEL = 45;
+	public static final int MAKER_MODEL_MAPPING = 46;
     public static final int ORDER_PURCHASE = 24;
     public static final int ORDER_SALE = 36;
     public static final int PAYMENT_TYPE = 27;

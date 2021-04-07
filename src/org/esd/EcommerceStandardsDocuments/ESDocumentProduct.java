@@ -1,10 +1,11 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.HashMap;
 
 /**
@@ -18,7 +19,7 @@ import java.util.HashMap;
 * "message":"The product data has been successfully obtained.",
 * "configs":{"dataFields":"keyProductID,productCode,keyTaxcodeID,productSearchCode,barcode,barcodeInner,brand,name,description1,description2,description3,description4,productClass,keySellUnitID,unit,weight,width,height,depth,averageCost,warehouse,supplier,deliveryTimeNoStock,deliveryTimeInStock,stockQuantity,stockNoneQuantity,stockLowQuantity,stockLowQuantity,isPriceTaxInclusive,isKitted,kitProductsSetPrice"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.3,
+* "version": 1.4,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [
@@ -46,6 +47,10 @@ import java.util.HashMap;
 * "width": 21,
 * "height": 29.7,
 * "depth": 10,
+* "widthUnitMeasureCode": "CM",
+* "heightUnitMeasureCode": "CM",
+* "depthUnitMeasureCode": "CM",
+* "weightUnitMeasureCode": "KG",
 * "averageCost": 10.00,
 * "warehouse":"Swisho Warehouse",
 * "supplier":"Swisho",
@@ -60,18 +65,46 @@ import java.util.HashMap;
 * "keySellUnitID": 2,
 * "sellUnits":[
 * {
-* "keySellUnitID":"2"
+* "keySellUnitID":"2",
+* "minOrderQuantity": 1,
+* "incrementOrderQuantity": 1,
+* "weight": 1.2,
+* "width": 6.1,
+* "height": 4.4,
+* "depth": 2.9,
+* "packageWeight": 2.3,
+* "packageWidth": 8.0,
+* "packageHeight": 9.2,
+* "packageDepth": 10.1,
+* "widthUnitMeasureCode":"CM",
+* "heightUnitMeasureCode":"CM",
+* "depthUnitMeasureCode":"CM",
+* "weightUnitMeasureCode":"KG"
 * },
 * {
 * "keySellUnitID":"3",
 * "keySellUnitParentID":"2",
-* "baseQuantity": "6"
+* "baseQuantity": 6,
+* "minOrderQuantity": 2,
+* "incrementOrderQuantity": 2,
+* "weight": 7.3,
+* "width": 6.1,
+* "height": 4.4,
+* "depth": 14,
+* "packageWeight": 14.7,
+* "packageWidth": 8.0,
+* "packageHeight": 9.2,
+* "packageDepth": 70.2,
+* "widthUnitMeasureCode":"CM",
+* "heightUnitMeasureCode":"CM",
+* "depthUnitMeasureCode":"CM",
+* "weightUnitMeasureCode":"KG"
 * },
 * {
 * "keySellUnitID":"4",
 * "keySellUnitParentID":"3",
-* "baseQuantity": "24",
-* "parentQuantity": "4"
+* "baseQuantity": 24,
+* "parentQuantity": 4
 * }
 * ]
 * }
@@ -135,6 +168,7 @@ public class ESDocumentProduct  extends ESDocument
     /**
     * List of product records
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordProduct[] dataRecords = new ESDRecordProduct[]{};
     
     /**

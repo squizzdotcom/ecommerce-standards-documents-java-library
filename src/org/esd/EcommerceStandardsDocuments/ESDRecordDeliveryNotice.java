@@ -1,5 +1,5 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
@@ -32,6 +32,16 @@ public class ESDRecordDeliveryNotice
     * message that advises of the status of the delivery. The message could contain details specific to status of where the delivery is at
     */
     public String deliveryStatusMessage = new String();
+	
+	/**
+    * Key of the customer account record that the delivery notice is associated to. The customer indicates the entity of the goods being delivered for.
+    */
+    public String keyCustomerAccountID = new String();
+	
+	/**
+    * Key of the supplier account record that the delivery notice is associated to. The supplier indicates the entity of the goods being delivered from.
+    */
+    public String keySupplierAccountID = new String();
 	
 	/**
     * Language that the delivery notice text is written in. Set it to a constant prefixed with LANG_ in the ESDocumentConstants class
@@ -88,6 +98,11 @@ public class ESDRecordDeliveryNotice
     * Date that the products were delivered and received by the final receiving entity. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
     */
     public long receivedDate = 0;
+	
+	/**
+    * Date that the products were cancelled from being delivered. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+    public long cancelledDate = 0;
 	
 	/**
     * Either 'N'-No or 'Y'-Yes

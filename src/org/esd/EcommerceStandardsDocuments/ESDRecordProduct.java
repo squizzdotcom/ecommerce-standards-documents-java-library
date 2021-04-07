@@ -1,19 +1,23 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
 * Ecommerce Standards Record that holds data for a single product. A product can be a physical or non-physical item that can be sold in quantities.
 */
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
 public class ESDRecordProduct   
 {
     /**
     * Key that allows the product record to be uniquely identified and linked to.
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public String keyProductID = new String();
 
     /**
@@ -120,6 +124,26 @@ public class ESDRecordProduct
     * Depth dimension of a single product unit.
     */
     public double depth = 0;
+
+	/**
+	* Code of the product's width measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_LENGTH_ in the ESDocumentConstants class
+	*/
+	public String widthUnitMeasureCode = new String();
+
+	/**
+	* Code of the product's height measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_LENGTH_ in the ESDocumentConstants class
+	*/
+	public String heightUnitMeasureCode = new String();
+	
+	/**
+	* Code of the product's depth measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_LENGTH_ in the ESDocumentConstants class
+	*/
+	public String depthUnitMeasureCode = new String();
+	
+	/**
+	* Code of the product's weight measurement to define the unit of measurement. Set it to a constant prefixed with UNIT_MEASURE_MASS_ in the ESDocumentConstants class
+	*/
+	public String weightUnitMeasureCode = new String();
 
     /**
     * Monetary value that denotes the average cost to purchase a single product unit.

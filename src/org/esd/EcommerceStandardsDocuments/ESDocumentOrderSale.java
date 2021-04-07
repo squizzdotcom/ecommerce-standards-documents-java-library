@@ -1,10 +1,11 @@
 /**
-* Copyright (C) 2019 Squizz PTY LTD
+* Copyright (C) Squizz PTY LTD
 * This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 * You should have received a copy of the GNU General Public License along with this program.  If not, see http://www.gnu.org/licenses/.
 */
 package org.esd.EcommerceStandardsDocuments;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.HashMap;
 
 /**
@@ -18,7 +19,7 @@ import java.util.HashMap;
 * "message":"The sales order data has been successfully obtained.",
 * "configs":{},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.3,
+* "version": 1.4,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [
@@ -97,7 +98,7 @@ import java.util.HashMap;
 * "totalWeight": 35,
 * "totalVolume": 10,
 * "totalVolumeMeasureCode": "KG",
-* "totalWeightMeasureCode":"METRES-CUBED",
+* "totalWeightMeasureCode":"M3",
 * "totalSurchargeItems": 1,
 * "totalSurchargeExTax": 20.00,
 * "totalSurchargeIncTax": 22.00,
@@ -165,10 +166,10 @@ import java.util.HashMap;
 * "depth": 29.7,
 * "volume": 10,
 * "weight": 10.00,
-* "widthUnitMeasureCode": "METRES",
-* "heightUnitMeasureCode": "METRES",
-* "depthUnitMeasureCode": "METRES",
-* "volumeUnitMeasureCode": "METRES-CUBED",
+* "widthUnitMeasureCode": "M",
+* "heightUnitMeasureCode": "M",
+* "depthUnitMeasureCode": "M",
+* "volumeUnitMeasureCode": "M3",
 * "weightUnitMeasureCode": "KG",
 * "keyGLAccountID": "GLA2",
 * "glAccountCode": "570",
@@ -353,6 +354,7 @@ public class ESDocumentOrderSale  extends ESDocument
     /**
     * List of sales order records
     */
+	@JsonInclude(JsonInclude.Include.ALWAYS)
     public ESDRecordOrderSale[] dataRecords = new ESDRecordOrderSale[]{};
     
     /**
