@@ -26,7 +26,7 @@ public class ESDRecordDeliveryNotice
 	/**
     * Code of the delivery. May or may not be a unique identifier. The code is a human known identifier of the delivery notice
     */
-    public String deliveryCode = new String();
+    public String deliveryNoticeCode = new String();
 	
 	/**
     * message that advises of the status of the delivery. The message could contain details specific to status of where the delivery is at
@@ -34,14 +34,79 @@ public class ESDRecordDeliveryNotice
     public String deliveryStatusMessage = new String();
 	
 	/**
-    * Key of the customer account record that the delivery notice is associated to. The customer indicates the entity of the goods being delivered for.
+    * Key identifier of the customer account record that the delivery notice is associated to. The customer indicates the entity of the goods being delivered for.
     */
     public String keyCustomerAccountID = new String();
 	
 	/**
-    * Key of the supplier account record that the delivery notice is associated to. The supplier indicates the entity of the goods being delivered from.
+    * Key identifier of the supplier account record that the delivery notice is associated to. The supplier indicates the entity of the goods being delivered from.
     */
     public String keySupplierAccountID = new String();
+	
+	/**
+    * key identifier of the sales order that the delivery notice is associated to. References the sales order that the goods being delivered were ordered from.
+    */
+    public String keySalesOrderID = new String();
+	
+	/**
+    * Code of the sales order that the delivery notice is associated to. The code is a human known identifier of a sales order
+    */
+    public String salesOrderCode = new String();
+	
+	/**
+    * Number of the sales order that the delivery notice is associated to.
+    */
+    public String salesOrderNumber = new String();
+	
+	/**
+    * key identifier of the purchase order that the delivery notice is associated to. References the purchase order that the goods being delivered were requested from by the customer.
+    */
+    public String keyPurchaseOrderID = new String();
+	
+	/**
+    * Code of the purchase order that the delivery notice is associated to. The code is a human known identifier of a purchase order
+    */
+    public String purchaseOrderCode = new String();
+	
+	/**
+    * Number of the purchase order that the delivery notice is associated to.
+    */
+    public String purchaseOrderNumber = new String();
+	
+	/**
+    * key identifier of the customer invoice that the delivery notice is associated to. References the customer invoice that the goods being delivered were confirmed from.
+    */
+    public String keyCustomerInvoiceID = new String();
+	
+	/**
+    * Code of the customer invoice that the delivery notice is associated to. The code is a human known identifier of a customer invoice
+    */
+    public String customerInvoiceCode = new String();
+	
+	/**
+    * Number of the customer invoice that the delivery notice is associated to.
+    */
+    public String customerInvoiceNumber = new String();
+	
+	/**
+    * key identifier of the supplier invoice that the delivery notice is associated to. References the supplier invoice that the goods being delivered were confirmed from.
+    */
+    public String keySupplierInvoiceID = new String();
+	
+	/**
+    * Code of the supplier invoice that the delivery notice is associated to. The code is a human known identifier of a customer invoice
+    */
+    public String supplierInvoiceCode = new String();
+	
+	/**
+    * Number of the supplier invoice that the delivery notice is associated to.
+    */
+    public String supplierInvoiceNumber = new String();
+
+	/**
+    * key identifier of the location that the delivery notice is associated to. References the location that the goods being located at.
+    */
+    public String keyLocationID = new String();
 	
 	/**
     * Language that the delivery notice text is written in. Set it to a constant prefixed with LANG_ in the ESDocumentConstants class
@@ -192,9 +257,9 @@ public class ESDRecordDeliveryNotice
             keyDeliveryNoticeID = "";
         }
 		
-		if (deliveryCode == null)
+		if (deliveryNoticeCode == null)
         {
-            deliveryCode = "";
+            deliveryNoticeCode = "";
         }
 		
 		if(deliveryStatus == null)
