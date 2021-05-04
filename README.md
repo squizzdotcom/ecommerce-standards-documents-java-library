@@ -6,4 +6,7 @@ To get a basic understanding of how to library in Java applications it is recomm
 
 - [Documentation](https://www.squizz.com/esd/index.html)
 - [License](LICENSE)
-- Current Library Version 1.3
+- Current Library Version 1.4
+
+## Usage
+To install and and use the Ecommerce Standards documents java library you can download the library's jar file from the from the [Releases](https://github.com/squizzdotcom/ecommerce-standards-documents-java-library/releases) page, place into your Java project's directory and reference within your classpath. Alternatively you can download this git repository and compile the library using Netbeans or javac, or incorporate the source into your own java application.
