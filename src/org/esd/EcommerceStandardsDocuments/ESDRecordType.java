@@ -11,6 +11,7 @@ package org.esd.EcommerceStandardsDocuments;
  */
 public class ESDRecordType {
     public static final int ALTERNATE_CODE = 1;
+	public static final int ASSET = 80;
     public static final int ATTACHMENT = 2;
     public static final int ATTRIBUTE = 3;
     public static final int ATTRIBUTE_PROFILE = 4;

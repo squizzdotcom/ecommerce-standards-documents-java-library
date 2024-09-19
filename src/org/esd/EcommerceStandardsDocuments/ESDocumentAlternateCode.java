@@ -16,7 +16,7 @@ import java.util.HashMap;
 * <blockquote>
 *{
 *   {
-*       "version": 1.4,
+*       "version": 1.5,
 *       "resultStatus":1,
 *       "message":"The product alternate code data has been successfully obtained.",
 *       "dataTransferMode": "COMPLETE",

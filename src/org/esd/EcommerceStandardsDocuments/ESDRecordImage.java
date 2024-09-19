@@ -22,9 +22,17 @@ public class ESDRecordImage
     public String keyProductID = new String();
 
     /**
+	* @Deprecated
+	* use keyAssetID instead
     * Key of the download record that the image is set for.
     */
+	@Deprecated
     public String keyDownloadID = new String();
+	
+	/**
+    * Key of the asset that the image is set for.
+    */
+    public String keyAssetID = new String();
 
     /**
     * Key of the labour record that the image is set for.
@@ -46,11 +54,12 @@ public class ESDRecordImage
 	 */
 	
 	public String keyMakerModelID = new String();
+	
 	/**
 	 * Key of the maker/manufacturer that creates or assembles models and products that the image is set for.
 	 */
 	public String keyMakerID = new String();
-
+	
     /**
     * Full file path to locate the image, including the image file name and extension. The file path may be a URL, or could be a path to the file in a local machine, or network file store.
     */

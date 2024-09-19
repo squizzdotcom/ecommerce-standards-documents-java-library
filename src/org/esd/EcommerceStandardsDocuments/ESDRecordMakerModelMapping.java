@@ -28,14 +28,22 @@ public class ESDRecordMakerModelMapping
 	public String keyProductID = new String();
 
 	/** 
-	 *Key of the Labour record that the flag is assigned to.
+	 *Key of the Labour record that the maker model mapping is assigned to.
 	 */
 	public String keyLabourID = new String();
 
 	/**
-	 *Key of the Download record that the flag is assigned to.
+	 * @Deprecated
+	 * use keyAssetID instead
+	 *Key of the Download record that the maker model mapping is assigned to.
 	 */
+	@Deprecated
 	public String keyDownloadID = new String();
+	
+	/**
+	 *Key of the Asset record that the maker model mapping is assigned to.
+	 */
+	public String keyAssetID = new String();
 
 	/**
 	 *Quantity of the product assigned to the model for the given category. The default is 1 if the quantity has not been set.

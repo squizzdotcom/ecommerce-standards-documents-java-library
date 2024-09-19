@@ -27,39 +27,69 @@ public class ESDRecordStockQuantity
     public String keyLabourID = new String();
 
     /**
-    * Unit quantity of stock available to be purchased
+    * Base unit quantity of stock available to be purchased
     */
     public double qtyAvailable = 0;
 
     /**
-    * Unit quantity of stock on hand at its location
+    * Base unit quantity of stock on hand at its location
     */
     public double qtyOnHand = 0;
 
     /**
-    * Unit quantity of stock that has been ordered by a purchaser
+    * Base unit quantity of stock that has been ordered by a purchaser
     */
     public double qtyOrdered = 0;
 	
 	/**
-	 * Unit quantity of stock that is the maximum amount that can be ordered by a purchaser
+	 * Base unit quantity of stock that is the maximum amount that can be ordered by a purchaser
 	 */
 	public double qtyOrderable = 0;
 
     /**
-    * Unit quantity of stock that has been back ordered from a supplier
+    * Base unit quantity of stock that has been back ordered from a supplier
     */
     public double qtyBackordered = 0;
 
     /**
-    * Unit quantity of stock that has been reserved for given purchasers
+    * Base unit quantity of stock that has been reserved for given purchasers
     */
     public double qtyReserved = 0;
 
     /**
-    * Unit quantity of stock that has been placed at an external location (consigned)
+    * Base unit quantity of stock that has been placed at an external location (consigned)
     */
     public double qtyConsigned = 0;
+	
+	/**
+    * Date time that indicates when the product's stock has been available or in-stock since. If the product currently has no stock available then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone</summary>
+    */
+	public long stockAvailableSinceDate = 0;
+	
+	/**
+    * Date time that indicates when the product's stock has been on hand at its location since. If the product currently has no stock on hand then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+	public long stockOnHandSinceDate = 0;
+	
+	/**
+    * Date time that indicates when the product's stock has been on order by purchaser(s) since. If the product currently has no stock on order then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+	public long stockOrderedSinceDate = 0;
+	
+	/**
+    * Date time that indicates when the product's stock has been on back order from supplier(s). If the product currently has no stock on back order then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+	public long stockBackorderedSinceDate = 0;
+	
+	/**
+    * Date time that indicates when the product's stock has been reserved by purchaser(s). If the product currently has no stock reserved then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+	public long stockReservedSinceDate = 0;
+	
+	/**
+    * Date time that indicates when the product's stock has been on consignment for. If the product currently has no stock consigned then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+	public long stockConsignedSinceDate = 0;
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

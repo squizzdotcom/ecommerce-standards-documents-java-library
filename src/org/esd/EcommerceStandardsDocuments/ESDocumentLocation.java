@@ -21,7 +21,7 @@ import java.util.HashMap;
 * "dataFieldsLocationStock":"keyProductID,qtyAvailable,qtyOnHand,qtyOrdered,qtyBackordered,qtyReserved,qtyConsigned"
 * },
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 3,
 * "dataRecords":
 * [

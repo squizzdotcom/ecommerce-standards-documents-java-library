@@ -33,7 +33,7 @@ public class ESDRecordProductCombination
     public String internalID = new String();
 
     /**
-    * List of combination field and values that maps the product to the combination
+    * List of combination field and values that maps the product to the combination. Each inner array must be 2 items in size, with the first item storing the keyComboProfileFieldID, and the 2nd the fieldValueID. It's the collection of different fields and values assigned to the child product that allows it to be separately be found, from other child products assigned to the same parent product.
     */
     public String[][] fieldValueCombinations = new String[][]{};
 }

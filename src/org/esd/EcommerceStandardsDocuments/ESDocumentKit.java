@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The product kit data has been successfully obtained.",
 * "configs":{"dataFields":"keyKitProductID,keyComponentProductID,quantity,ordering"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 4,
 * "dataRecords":
 * [

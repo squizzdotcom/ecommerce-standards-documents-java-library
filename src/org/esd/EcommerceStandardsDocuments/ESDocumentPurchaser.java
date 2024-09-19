@@ -19,7 +19,7 @@ import java.util.HashMap;
 * "message":"The purchaser data has been successfully obtained.",
 * "configs":{"dataFields":"keyPurchaserID,purchaserCode,contact,isIndividual"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 3,
 * "dataRecords":
 * [

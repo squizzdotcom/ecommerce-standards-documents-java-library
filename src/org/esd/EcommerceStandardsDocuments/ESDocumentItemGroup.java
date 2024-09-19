@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The item group data has been successfully obtained.",
 * "configs":{"dataFields":"keyItemGroupID,groupCode,groupLabel,groupDescription,keyDefaultProductID,keyDefaultDownloadID,keyDefaultLabourID"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 3,
 * "dataRecords":
 * [

@@ -20,7 +20,7 @@ public class ESDocumentConstants
     */
     public static final int RESULT_ERROR = 2;
     /**
-    * result status denoting that an unknown error occurred when trying to obtain/process data
+    * result status denoting that an unknown or unspecified type of error occurred when trying to obtain/process data
     */
     public static final int RESULT_ERROR_UNKNOWN = 3;
     /**
@@ -118,7 +118,7 @@ public class ESDocumentConstants
     /**
     * Contains the version that the Ecommerce Standards Documents library is currently at.
     */
-    public static final double ESD_DOCUMENT_VERSION = 1.4;
+    public static final double ESD_DOCUMENT_VERSION = 1.5;
     /**
     * Denotes that the location is a warehouse
     */
@@ -188,9 +188,16 @@ public class ESDocumentConstants
     */
     public static final String ORDER_LINE_TYPE_PRODUCT = "PRODUCT";
     /**
+	* @Deprecated
+	* use ORDER_LINE_TYPE_ASSET instead
     * Order Line Type - Download
     */
+	@Deprecated
     public static final String ORDER_LINE_TYPE_DOWNLOAD = "DOWNLOAD";
+	/**
+    * Order Line Type - Asset
+    */
+    public static final String ORDER_LINE_TYPE_ASSET = "ASSET";
     /**
     * Order Line Type - Labour
     */
@@ -205,9 +212,15 @@ public class ESDocumentConstants
 	*/
 	public static final String INVOICE_LINE_TYPE_PRODUCT = "PRODUCT";
 	/**
+	* use INVOICE_LINE_TYPE_ASSET instead
     * Invoice Line Type - Download - indicates that a digital file or asset has been sold or purchased within an invoice line.
 	*/
+	@Deprecated
 	public static final String INVOICE_LINE_TYPE_DOWNLOAD = "DOWNLOAD";
+	/**
+    * Invoice Line Type - Asset - indicates that a physical or non physical asset has been sold or purchased within an invoice line.
+	*/
+	public static final String INVOICE_LINE_TYPE_ASSET = "ASSET";
 	/**
     * Invoice Line Type - Labour - indicates that labour or work effort has been sold or purchased within in an invoice line.
 	*/
@@ -257,9 +270,13 @@ public class ESDocumentConstants
     */
     public static final String PAYMENT_METHOD_UNPAID = "UNPAID";
     /**
-    * Payment method - CREDIT - A payment was made with a credit card
+    * Deprecated. Payment method - CREDIT - A payment was made with a credit card. Use PAYMENT_METHOD_CREDITCARD variable instead.
     */
     public static final String PAYMENT_METHOD_CREDIT = "CREDITCARD";
+	/**
+    * Payment method - CREDITCARD - A payment was made with a credit card
+    */
+	public static final String PAYMENT_METHOD_CREDITCARD = "CREDITCARD";
     /**
     * Payment method - COD - Payment will be made with cash when the goods are delivered to the delivery location
     */
@@ -735,4 +752,69 @@ public class ESDocumentConstants
 	 * Unit Of Measure - Volume - Gallon. United States liquid unit.
 	 */
 	public static final String UNIT_MEASURE_VOLUME_LIQUID_US_GALLON = "USGAL";
+	
+	/**
+	 * Alternate Code Type - GTIN-14 - Global Trade Item Number 14 digits long, may also be known as a barcode in the EAN/UCC-14, SCC-14, DUN-14,[3] UPC Case Code, UPC Shipping Container Code standards
+	 */
+	public static final String ALTERNATE_CODE_TYPE_GTIN_14 = "GTIN_14";
+	/**
+	 * Alternate Code Type - GTIN-13 - Global Trade Item Number 13 digits long, may also be known as a barcode in the EAN, EAN·UCC-13, JAN standards
+	 */
+	public static final String ALTERNATE_CODE_TYPE_GTIN_13 = "GTIN_13";
+	/**
+	 * Alternate Code Type - GTIN-12 - Global Trade Item Number 12 digits long, may also be known as a barcode in the EAN·UCC-12, UCC-12 standards
+	 */
+	public static final String ALTERNATE_CODE_TYPE_GTIN_12 = "GTIN_12";
+	/**
+	 * Alternate Code Type - GTIN-8 - Global Trade Item Number 8 digits long, may also be known as a barcode in the  EAN/UCC-8 standards
+	 */
+	public static final String ALTERNATE_CODE_TYPE_GTIN_8 = "GTIN_8";
+	/**
+	 * Alternate Code Type - GS1-128 - GS1-128 barcode standard up to 48 characters long
+	 */
+	public static final String ALTERNATE_CODE_TYPE_GS1_128 = "GS1_128";
+	/**
+	 * Alternate Code Type - MPM - Manufacturer Part Number
+	 */
+	public static final String ALTERNATE_CODE_TYPE_MPN = "MPN";
+	/**
+	 * Alternate Code Type - UPC-A - Universal Product Code - version A - 12 digit barcode
+	 */
+	public static final String ALTERNATE_CODE_TYPE_UPC_A = "UPC_A";
+	/**
+	 * Alternate Code Type - UPC-E - Universal Product Code - version E - 8 digit barcode
+	 */
+	public static final String ALTERNATE_CODE_TYPE_UPC_E = "UPC_E";
+	/**
+	 * Alternate Code Type - ISBN - International Standard Book Number, a 9, 10 (ISO 2108) or 14 digit code issued by the International ISBN Agency
+	 */
+	public static final String ALTERNATE_CODE_TYPE_ISBN = "ISBN";
+	/**
+	 * Alternate Code Type - ISMN - International Standard Music Number, 13 digit number defined by the ISO 10957 standard
+	 */
+	public static final String ALTERNATE_CODE_TYPE_ISMN = "ISMN";
+	/**
+	 * Alternate Code Type - EAN-13 - Europlean Artical Number, 13 digit number derived by GS1
+	 */
+	public static final String ALTERNATE_CODE_TYPE_EAN_13 = "EAN_13";
+	/**
+	 * Alternate Code Type - EAN-8 - Europlean Artical Number, 8 digit number derived by GS1
+	 */
+	public static final String ALTERNATE_CODE_TYPE_EAN_8 = "EAN_8";
+	/**
+	 * Alternate Code Type - EAN-5 - Europlean Artical Number, 5 digit number derived by GS1
+	 */
+	public static final String ALTERNATE_CODE_TYPE_EAN_5 = "EAN_5";
+	/**
+	 * Alternate Code Type - EAN-2 - Europlean Artical Number, 2 digit number derived by GS1
+	 */
+	public static final String ALTERNATE_CODE_TYPE_EAN_2 = "EAN_2";
+	/**
+	 * Alternate Code Type - SUPC - Supplier Product Code - code of a supplier's product
+	 */
+	public static final String ALTERNATE_CODE_SUPPLIER_PRODUCT_CDOE = "SUPC";
+	/**
+	 * Alternate Code Type - CUPC - Customer Product Code - code of a customer's product
+	 */
+	public static final String ALTERNATE_CODE_CUSTOMER_PRODUCT_CDOE = "CUPC";
 }

@@ -93,9 +93,17 @@ public class ESDRecordCategory
     public String[] keyProductIDs = new String[]{};
 
     /**
+	* @Deprecated
+	* Use keyAssetIDs instead
     * List of Key Download IDs, that link any number of Download records to the category.
     */
+	@Deprecated
     public String[] keyDownloadIDs = new String[]{};
+	
+	/**
+    * List of Key Asset IDs, that link any number of Asset records to the category.
+    */
+    public String[] keyAssetIDs = new String[]{};
 
     /**
     * List of Key Labour IDs, that link any number of Labour records to the category.

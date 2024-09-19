@@ -19,7 +19,7 @@ import java.util.HashMap;
 * "message":"The sales order data has been successfully obtained.",
 * "configs":{},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [

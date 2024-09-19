@@ -17,9 +17,17 @@ public class ESDRecordAttributeValue
     public String keyProductID = new String();
 
     /**
+	* @Deprecated
+	* use keyAssetID instead
     * Key of the download record that the attribute value is set for.
     */
+	@Deprecated
     public String keyDownloadID = new String();
+	
+	/**
+    * Key of the download record that the attribute value is set for.
+    */
+    public String keyAssetID = new String();
 
     /**
     * Key of the labour record that the attribute value is set for.

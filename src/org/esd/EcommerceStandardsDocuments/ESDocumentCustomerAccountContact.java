@@ -9,9 +9,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import java.util.HashMap;
 
 /**
-* Ecommerce standards document that holds a list of customer account contact records
+* Ecommerce standards document that holds a list of contacts records that are associated to customer accounts. These are the people who are linked to each customer account.
 * 
-* An example of the Customer Account Ecommerce Standards document in its JSON serialised form
+* An example of the Customer Account Contact Ecommerce Standards document in its JSON serialised form
 * 
 *  {@code 
 * {
@@ -19,7 +19,7 @@ import java.util.HashMap;
 * "message":"The customer account contact data has been successfully obtained.",
 * "configs":{"dataFields":"keyContactID,keyCustomerAccountID,contactCode,title,name1,name2,name3,email,phone1,phone2,phone3,fax,website,orgName,orgPosition"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [

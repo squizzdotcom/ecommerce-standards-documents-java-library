@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The item relation data has been successfully obtained.",
 * "configs":{"dataFields":"keyProductID,keyDownloadID,keyLabourID,keyRelatedDownloadID,keyRelatedProductID,keyRelatedLabourID"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 4,
 * "dataRecords":
 * [

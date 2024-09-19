@@ -40,5 +40,5 @@ public class ESDRecordCombinationProfile
     /**
     * list of fields assigned to the combination profile
     */
-    public ESDRecordCombinationProfileField[] __combinationFields = new ESDRecordCombinationProfileField[]{};
+    public ESDRecordCombinationProfileField[] combinationFields = new ESDRecordCombinationProfileField[]{};
 }

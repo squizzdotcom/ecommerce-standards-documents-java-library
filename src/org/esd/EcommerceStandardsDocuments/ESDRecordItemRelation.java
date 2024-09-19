@@ -17,9 +17,17 @@ public class ESDRecordItemRelation
     public String keyProductID = new String();
 
     /**
+	* @Deprecated
+	* use keyAssetID instead
     * Key of the download record
     */
+	@Deprecated
     public String keyDownloadID = new String();
+	
+	/**
+    * Key of the asset record
+    */
+    public String keyAssetID = new String();
 
     /**
     * Key of the labour record
@@ -32,9 +40,17 @@ public class ESDRecordItemRelation
     public String keyRelatedProductID = new String();
 
     /**
+	* @Deprecated
+	* use keyAssetID instead
     * Key of the download record that is related
     */
+	@Deprecated
     public String keyRelatedDownloadID = new String();
+		
+	/**
+    * Key of the asset record that is related
+    */
+    public String keyRelatedAssetID = new String();
 
     /**
     * Key of the labour record that is related

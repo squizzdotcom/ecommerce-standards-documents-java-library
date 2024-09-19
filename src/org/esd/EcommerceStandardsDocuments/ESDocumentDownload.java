@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The download data has been successfully obtained.",
 * "configs":{"dataFields":"keyDownloadID,downloadCode,keyTaxcodeID,downloadSearchCode,downloadLocation,downloadKey,downloadSize,brand,name,description1,description2,description3,description4,downloadClass,averageCost,supplier,deliveryTimeNoStock,deliveryTimeInStock,downloadQuantity,downloadNoneQuantity,downloadLowQuantity,isPriceTaxInclusive,isKitted,kitSetPrice"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [

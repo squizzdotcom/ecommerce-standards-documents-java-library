@@ -17,9 +17,15 @@ public class ESDRecordPrice
     public String keyProductID = new String();
 
     /**
-    * Key of the download record that links the price to the download
+    * Deprecated, use keyAssetID instead. Key of the download record that links the price to the download
     */
+	@Deprecated
     public String keyDownloadID = new String();
+	
+	/**
+    * Key of the asset record that links the price to the asset
+    */
+	public String keyAssetID = new String();
 
     /**
     * Key of the labour record that links the price to the labour

@@ -153,6 +153,11 @@ public class ESDRecordCustomerAccountEnquiryCredit
     */
     public String deliveryPostcode = new String();
 
+	/**
+    * Code of the purchase order to include in the delivery information, that is contains the code of the purchase order associated to the delivery of the goods
+    */
+    public String deliveryPurchaseOrderCode = new String();
+	
     /**
     * Name of the contact person at the address associated with the billing of the credit.
     */

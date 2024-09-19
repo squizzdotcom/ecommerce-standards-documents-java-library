@@ -364,6 +364,42 @@ public class ESDRecordSupplierInvoiceLine
     * code of the download in the customer's purchase order, that stores the code of the customer's download originally ordered
     */
     public String purchaseOrderDownloadCode = new String();
+	
+	// asset fields
+    /**
+    * Key of the asset record associated to the line. Only relevent when the lineType has been to asset
+    */
+    public String keyAssetID = new String();
+
+    /**
+    * Code the asset in the line.
+    */
+    public String assetCode = new String();
+
+    /**
+    * name the asset in the line.
+    */
+    public String assetName = new String();
+
+    /**
+    * description the asset in the line.
+    */
+    public String assetDescription = new String();
+	
+	/**
+    * code of the asset in the supplier's customer invoice, that stores the code of the customer's asset
+    */
+    public String customerInvoiceAssetCode = new String();
+	
+	/**
+    * code of the asset in the supplier's sales order, that stores the code of the supplier's asset originally ordered
+    */
+    public String salesOrderAssetCode = new String();
+	
+	/**
+    * code of the asset in the purchase order associated to the sales order
+    */
+    public String purchaseOrderAssetCode = new String();
 
     // labour fields
     /**
@@ -647,6 +683,41 @@ public class ESDRecordSupplierInvoiceLine
 		if (purchaseOrderDownloadCode == null)
         {
             purchaseOrderDownloadCode = "";
+        }
+		
+		if (assetCode == null){
+			assetCode = "";
+		}
+
+		if (keyAssetID == null){
+			keyAssetID = "";
+		}
+
+		if (assetName == null){
+			assetName = "";
+		}
+
+		if (assetDescription == null){
+			assetDescription = "";
+		}
+
+		if (salesOrderAssetCode == null){
+			salesOrderAssetCode = "";
+		}
+		
+		if (customerInvoiceAssetCode == null)
+        {
+            customerInvoiceAssetCode = "";
+        }
+		
+		if (salesOrderAssetCode == null)
+        {
+            salesOrderAssetCode = "";
+        }
+		
+		if (purchaseOrderAssetCode == null)
+        {
+            purchaseOrderAssetCode = "";
         }
          
         if (labourCode == null)

@@ -335,6 +335,11 @@ public class ESDRecordSupplierInvoice
     */
     public String deliveryCountryCodeISO3 = new String();
 
+	/**
+    * Code of the purchase order to include in the delivery information, that is contains the code of the purchase order associated to the delivery of the goods
+    */
+    public String deliveryPurchaseOrderCode = new String();
+	
     /**
     * Description of the address associated with the billing of the invoice.
     */
@@ -1004,6 +1009,11 @@ public class ESDRecordSupplierInvoice
         if (deliveryCountryCodeISO3 == null)
         {
             deliveryCountryCodeISO3 = "";
+        }
+		
+		if (deliveryPurchaseOrderCode == null)
+        {
+            deliveryPurchaseOrderCode = "";
         }
          
         if (billingDescription == null)

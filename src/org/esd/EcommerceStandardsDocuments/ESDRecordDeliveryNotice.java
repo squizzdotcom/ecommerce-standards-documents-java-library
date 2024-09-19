@@ -74,6 +74,11 @@ public class ESDRecordDeliveryNotice
     public String purchaseOrderNumber = new String();
 	
 	/**
+    * Code of the purchase order to include in the delivery information, that is contains the code of the purchase order associated to the delivery of the goods
+    */
+    public String deliveryPurchaseOrderCode = new String();
+	
+	/**
     * key identifier of the customer invoice that the delivery notice is associated to. References the customer invoice that the goods being delivered were confirmed from.
     */
     public String keyCustomerInvoiceID = new String();
@@ -310,6 +315,11 @@ public class ESDRecordDeliveryNotice
 		if (freightCarrierAccountCode == null)
         {
             freightCarrierAccountCode = "";
+        }
+		
+		if (deliveryPurchaseOrderCode == null)
+		{
+            deliveryPurchaseOrderCode = "";
         }
 		
 		if (isDropship == null)

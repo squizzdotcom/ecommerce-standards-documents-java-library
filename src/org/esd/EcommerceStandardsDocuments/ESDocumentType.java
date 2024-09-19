@@ -12,11 +12,15 @@ package org.esd.EcommerceStandardsDocuments;
 public class ESDocumentType 
 {
     public static final int ALTERNATE_CODE = 9;
+	public static final int ASSET = 50;
+	public static final int ASSET_COMPONENT = 51;
     public static final int ATTACHMENT = 13;
     public static final int ATTRIBUTE = 11;
     public static final int CATEGORY = 8;
+	public static final int CURRENCY_EXCHANGE_RATE = 43;
     public static final int CUSTOMER_ACCOUNT = 17;
     public static final int CUSTOMER_ACCOUNT_ADDRESS = 20;
+	public static final int CUSTOMER_ACCOUNT_CONTACT = 47;
     public static final int CUSTOMER_ACCOUNT_CONTRACT = 19;
     public static final int CUSTOMER_ACCOUNT_ENQUIRY = 29;
     public static final int CUSTOMER_ACCOUNT_ENQUIRY_LINE = 30;
@@ -33,6 +37,7 @@ public class ESDocumentType
     public static final int KIT = 22;
     public static final int LABOUR = 35;
     public static final int LOCATION = 23;
+	public static final int LOCATION_CONTACT = 49;
 	public static final int MAKER = 44;
 	public static final int MAKER_MODEL = 45;
 	public static final int MAKER_MODEL_MAPPING = 46;
@@ -49,6 +54,7 @@ public class ESDocumentType
     public static final int STOCK_QUANTITY = 10;
     public static final int SUPPLIER_ACCOUNT = 18;
     public static final int SUPPLIER_ACCOUNT_ADDRESS = 38;
+	public static final int SUPPLIER_ACCOUNT_CONTACT = 48;
     public static final int SUPPLIER_ACCOUNT_ENQUIRY = 39;
 	public static final int SUPPLIER_INVOICE = 40;
     public static final int SURCHARGE = 26;

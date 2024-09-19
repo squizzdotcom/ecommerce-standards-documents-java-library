@@ -74,6 +74,21 @@ public class ESDRecordProduct
     * Fourth description of the product. May contain any text used to describe the product.
     */
     public String description4 = new String();
+	
+	/**
+    * Meta title of the product. This would typically be used in the meta data of a web page or user interface that may be hidden from being viewed, but contains a label of the product that systems could utilise or be displayed in an application's header. The data in this field is typically targeted for online search engines.
+    */
+    public String metaTitle = new String();
+	
+	/**
+    * A list of words that describe the product. This would typically be used in the meta data of a web page or user interface that may be hidden from being viewed, but contains a space delimited list of keywords used by systems to index and allow for searching on the product. The data in this field is typically targeted for online search engines.
+    */
+    public String metaKeywords = new String();
+	
+	/**
+    * Meta description the product. This would typically be used in the meta data of a web page or user interface that may be hidden from being viewed, but contains a paragraph of text describing the details of a product that may be used to index, or display in search listings. The data in this field is typically targeted for online search engines.
+    */
+    public String metaDescription = new String();
 
     /**
     * Class of the product. A class may contain any text that can be set for multiple products as a classifier of the type of product.
@@ -171,19 +186,24 @@ public class ESDRecordProduct
     public String deliveryTimeInStock = new String();
 
     /**
-    * The amount of product units that are in stock and available for purchase.
+    * The amount of base product units that are in stock and available for purchase.
     */
     public double stockQuantity = 0;
 
     /**
-    * The amount of product units that indicate when the product is no longer in stock.
+    * The amount of base product units that indicate when the product is no longer in stock.
     */
     public double stockNoneQuantity = 0;
 
     /**
-    * The amount of product units that indicate when the product is low in stock.
+    * The amount of base product units that indicate when the product is low in stock.
     */
     public double stockLowQuantity = 0;
+	
+	/**
+    * Date time that indicates when the product's stock units has been available or in-stock since. If the product currently has no stock available then ignore setting. Date is in the form of a number in milliseconds since the 01-01-1970 12:00am Epoch in UTC time-zone
+    */
+	public long stockAvailableSinceDate = 0;
 
     /**
     * Either 'N'-No or

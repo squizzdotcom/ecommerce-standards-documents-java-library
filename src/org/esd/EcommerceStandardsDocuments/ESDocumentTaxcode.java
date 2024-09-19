@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The taxcode data has been successfully obtained.",
 * "configs":{"dataFields":"keyTaxcodeID,taxcode,taxcodeLabel,description,taxcodePercentageRate"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 4,
 * "dataRecords":
 * [

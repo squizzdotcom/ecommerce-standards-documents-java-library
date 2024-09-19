@@ -19,7 +19,7 @@ import java.util.HashMap;
 * "message":"The product data has been successfully obtained.",
 * "configs":{"dataFields":"keyProductID,productCode,keyTaxcodeID,productSearchCode,barcode,barcodeInner,brand,name,description1,description2,description3,description4,productClass,keySellUnitID,unit,weight,width,height,depth,averageCost,warehouse,supplier,deliveryTimeNoStock,deliveryTimeInStock,stockQuantity,stockNoneQuantity,stockLowQuantity,stockLowQuantity,isPriceTaxInclusive,isKitted,kitProductsSetPrice"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 2,
 * "dataRecords":
 * [
@@ -109,57 +109,6 @@ import java.util.HashMap;
 * ]
 * }
 * ]
-* }
-* }
-* 
-* 
-* An example of the Product Ecommerce Standards document in its JSON serialised form
-* 
-*  {@code 
-* using System;
-* using System.Collections.Generic;
-* using System.Linq;
-* using System.Text;
-* using EcommerceStandardsDocuments;
-* 
-* namespace MyApp
-* {
-* public class MyClass
-* {
-* /// <summary> Obtains a list of products records contained within an a products Ecommerce Standards Document</summary>
-* public ESDocumentProducts getProducts()
-* {
-* List<ESDRecordProduct> products = new List<ESDRecord>();
-* Dictionary<string, string> docConfigs = new Dictionary<string, string>();
-* 
-* //create a new product Ecomerce Standards Document
-* ESDocumentProduct productsDoc = new ESDocumentProduct(ESDocumentConstants.RESULT_ERROR_UNKNOWN, "Unable to get product data.", null, null);
-* 
-* //create a record for a tea towel product
-* ESDRecordProduct product1 = new ESDRecordProduct();
-* product1.keyProductID = "1";
-* product1.productCode = "PROD-1";
-* product1.name = "Tea Towels";
-* products.add(product1);
-* 
-* //create another record for a kettle product
-* ESDRecordProduct product2 = new ESDRecordProduct();
-* product2.keyProductID = "2";
-* product2.productCode = "PROD-2";
-* product2.name = "Kettle";
-* products.add(product2);
-* 
-* //in the document configs list all the properties of the product records that are being set, any properties not in the list can be ignored by the system when processing the product records
-* docConfigs.Add("dataFields","keyProductID,productCode,name");
-* 
-* productsDoc.configs = docConfigs;
-* productsDoc.dataRecords = products.ToArray();
-* productsDoc.resultStatus = ESDocumentConstants.RESULT_SUCCESS;
-* productsDoc.message = "Product data has been successfully obtained.";
-* 
-* return productsDoc;
-* }
-* }
 * }
 * }
 */

@@ -19,7 +19,7 @@ import java.util.HashMap;
 * "message":"The sell unit data has been successfully obtained.",
 * "configs":{"dataFields":"keySellUnitID,sellUnitCode,sellUnitLabel,isBaseUnit,baseQuantity,parentQuantity,keySellUnitParentID"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 3,
 * "dataRecords":
 * [

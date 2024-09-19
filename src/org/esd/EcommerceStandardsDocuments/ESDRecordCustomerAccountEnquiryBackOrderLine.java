@@ -65,6 +65,11 @@ public class ESDRecordCustomerAccountEnquiryBackOrderLine
     * Quantity back ordered for the line.
     */
     public double quantityBackordered = 0;
+	
+	/**
+	* Quantity available to fulfill on the quantity ordered line. This may be used to calculate a percentage of the line ordered in the line that is now available since the back order was first raised.
+	*/
+	public double quantityAvailable = 0;
 
     /**
     * monetary price for a single unit excluding tax amount.

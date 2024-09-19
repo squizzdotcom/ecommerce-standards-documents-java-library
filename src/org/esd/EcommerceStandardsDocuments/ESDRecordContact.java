@@ -26,6 +26,11 @@ public class ESDRecordContact
     * Key of the supplier account record that the contact record is linked to.
     */
     public String keySupplierAccountID = new String();
+	
+	/**
+    * Key of the location record that the contact record is linked to.
+    */
+    public String keyLocationID = new String();
 
     /**
     * Code of the contact. May or may not be a unqiue identifier.
@@ -91,6 +96,26 @@ public class ESDRecordContact
     * Name of the employment position of the contact within the organisation.
     */
     public String orgPosition = new String();
+	
+	/**
+    * 'N'-No or 'Y'-Yes If 'Y' then indicates that the contact is the primary person from a list of contacts.
+	*/
+	public String isPrimary = new String();
+
+	/**
+    * Either 'N'-No or 'Y'-Yes If 'Y' then indicates that the contact is allowed to receive marketing media.
+	*/
+	public String allowMarketing = new String();
+
+	/**
+    * codes of marketing categories to assign the contact to, allowing them to receive marketing media for relevant categories of media
+	*/
+	public String[] marketingCategoryCodes = new String[0];
+	
+	/**
+    * Code used to authenticate or provide authentication for the contact.
+	*/
+	public String authCode = new String();
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

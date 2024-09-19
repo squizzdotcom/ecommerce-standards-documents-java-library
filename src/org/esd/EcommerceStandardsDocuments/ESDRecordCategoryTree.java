@@ -35,6 +35,11 @@ public class ESDRecordCategoryTree
 	 * Number to order the category tree by. This may be used to order a number of category trees that appear within a list.
 	 */
 	public int ordering = 0;
+	
+	/**
+	 * Either 'N'-No or 'Y'-Yes. If 'Y' then indicates that the category tree is used for navigation of maker/model data, and grouping of products assigned to each model through the tree's catgories.
+	*/
+	public String isMakerModelCategoryTree = new String();
 
     /**
     * Data Record OPeration. Denotes an operation that may need to be performed on the record when it is being processed.

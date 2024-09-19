@@ -20,6 +20,11 @@ public class ESDRecordAlternateCode
     * Key of the download record that the alternate code is assigned to.
     */
     public String keyDownloadID = new String();
+	
+	/**
+    * Key of the asset record that the alternate code is assigned to.
+    */
+    public String keyAssetID = new String();
 
     /**
     * Key of the labour record that the alternate code is assigned to.
@@ -30,6 +35,11 @@ public class ESDRecordAlternateCode
     * Alternate code. May or may not be a unique identifier
     */
     public String alternateCode = new String();
+	
+	/**
+	* Indicates what type of code the alternate code is. see ALTERNATE_CODE_TYPE constants in the ESDocumentConstants class that contains type of code that can be set
+	*/
+	public String codeType = new String();
 
     /**
     * Either 'N'-No or

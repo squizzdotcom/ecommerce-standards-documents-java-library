@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The product stock quantity data has been successfully obtained.",
 * "configs":{"dataFields":"keyProductID,qtyAvailable,qtyOnHand,qtyOrdered,qtyOrdered,qtyBackordered,qtyReserved,qtyConsigned"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 3,
 * "dataRecords":
 * [

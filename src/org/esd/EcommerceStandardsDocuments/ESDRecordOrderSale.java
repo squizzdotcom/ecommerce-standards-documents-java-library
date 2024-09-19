@@ -350,6 +350,11 @@ public class ESDRecordOrderSale
     * Code of the country at the address that the ordered goods are being delivered to as a 3 digit code  by ISO standards.
     */
     public String deliveryCountryCodeISO3 = new String();
+	
+	/**
+    * Code of the purchase order to include in the delivery information, that is contains the code of the purchase order associated to the delivery of the goods
+    */
+    public String deliveryPurchaseOrderCode = new String();
 
     /**
     * Description of the address associated with the billing of the order.
@@ -806,6 +811,11 @@ public class ESDRecordOrderSale
         {
             deliveryCountryCodeISO3 = "";
         }
+		
+		if (deliveryPurchaseOrderCode == null)
+        {
+            deliveryPurchaseOrderCode = "";
+        }
          
         if (salesOrderCode == null)
         {
@@ -1123,6 +1133,7 @@ public class ESDRecordOrderSale
         accountEnquiryOrderSaleRecord.deliveryCountry = deliveryCountryName;
         accountEnquiryOrderSaleRecord.deliveryCountryCodeISO2 = deliveryCountryCodeISO2;
         accountEnquiryOrderSaleRecord.deliveryCountryCodeISO3 = deliveryCountryCodeISO3;
+		accountEnquiryOrderSaleRecord.deliveryPurchaseOrderCode = deliveryPurchaseOrderCode;
         accountEnquiryOrderSaleRecord.billingContact = billingContact;
         accountEnquiryOrderSaleRecord.billingOrgName = billingOrgName;
         accountEnquiryOrderSaleRecord.billingAddress1 = billingAddress1;
@@ -1175,7 +1186,13 @@ public class ESDRecordOrderSale
                 recordLine.lineItemCode = lines.get(i).downloadCode;
                 recordLine.description = lines.get(i).downloadDescription;
                 recordLine.referenceLineItemCode = lines.get(i).purchaseOrderDownloadCode;
-            }else if(lines.get(i).lineType.equalsIgnoreCase(ESDocumentConstants.ORDER_LINE_TYPE_LABOUR)){
+            }
+			else if(lines.get(i).lineType.equalsIgnoreCase(ESDocumentConstants.ORDER_LINE_TYPE_ASSET)){
+                recordLine.lineItemCode = lines.get(i).assetCode;
+                recordLine.description = lines.get(i).assetDescription;
+                recordLine.referenceLineItemCode = lines.get(i).purchaseOrderAssetCode;
+            }
+			else if(lines.get(i).lineType.equalsIgnoreCase(ESDocumentConstants.ORDER_LINE_TYPE_LABOUR)){
                 recordLine.lineItemCode = lines.get(i).labourCode;
                 recordLine.description = lines.get(i).labourDescription;
                 recordLine.referenceLineItemCode = lines.get(i).purchaseOrderLabourCode;

@@ -18,7 +18,7 @@ import java.util.HashMap;
 * "message":"The payment type data has been successfully obtained.",
 * "configs":{"dataFields":"keyPaymentTypeID,paymentTypeCode,paymentTypeLabel,description,paymentMethod"},
 * "dataTransferMode": "COMPLETE",
-* "version": 1.4,
+* "version": 1.5,
 * "totalDataRecords": 4,
 * "dataRecords":
 * [
